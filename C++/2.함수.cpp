@@ -8,7 +8,7 @@ int main() {
 
 	std::cout << c << 5.5 << '-' << n << "hello" << true << std::endl;
 	std::cout << "n + 5 = " << n + 5 << "\n" << '\n';
-	std::cout << "¸éÀûÀº " << area(n); 
+	std::cout << "Â¸Ã©Ã€Ã»Ã€Âº " << area(n); 
 
 	
 }
