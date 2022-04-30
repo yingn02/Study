@@ -39,11 +39,11 @@ int Integer::isEven() {
 
 int main() {
 	Integer n(30);
-	cout << n.get() << ' '; // 30Ãâ·Â
+	cout << n.get() << ' '; // 30ì¶œë ¥
 	n.set(50);
-	cout << n.get() << ' '; // 50Ãâ·Â
+	cout << n.get() << ' '; // 50ì¶œë ¥
 
 	Integer m("300");
-	cout << m.get() << ' '; // 300Ãâ·Â
-	cout << m.isEven(); // True(Á¤¼ö·Î 1) Ãâ·Â
+	cout << m.get() << ' '; // 300ì¶œë ¥
+	cout << m.isEven(); // True(ì •ìˆ˜ë¡œ 1) ì¶œë ¥
 }
