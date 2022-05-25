@@ -4,7 +4,7 @@ using namespace std;
 
 int main() {
 	string uni("university");
-	string name[5]; //¹®ÀÚ¿­ ¹è¿­ ¼±¾ð
+	string name[5]; //Â¹Â®Ã€ÃšÂ¿Â­ Â¹Ã¨Â¿Â­ Â¼Â±Â¾Ã°
 
 	name[0] = "kim";
 	name[1] = "lee";
