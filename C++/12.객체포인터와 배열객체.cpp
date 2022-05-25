@@ -4,23 +4,23 @@ using namespace std;
 #include "Circle.h"
 
 int main() {
-	Circle ahn; //Circle(); »ı¼ºÀÚ È£Ãâ
-	Circle young(40); // Circle(int r); »ı¼ºÀÚ È£Ãâ
-	Circle *hansung; //¿ÀºêÁ§Æ®ÀÇ ÁÖ¼Ò¸¦ °¡¸®Å´
+	Circle ahn; //Circle(); ìƒì„±ì í˜¸ì¶œ
+	Circle young(40); // Circle(int r); ìƒì„±ì í˜¸ì¶œ
+	Circle *hansung; //ì˜¤ë¸Œì íŠ¸ì˜ ì£¼ì†Œë¥¼ ê°€ë¦¬í‚´
 
-	hansung = &ahn; //ahnÀÇ ÁÖ¼Ò¸¦ hansungÀÌ °¡¸®Å°°ÔÇÑ´Ù
-	cout << "ahn.getArea() = " << ahn.getArea() << endl; //Circle.cpp ¿¡ ÀÇÇØ getArea´Â 10 ÀÔ·Â
+	hansung = &ahn; //ahnì˜ ì£¼ì†Œë¥¼ hansungì´ ê°€ë¦¬í‚¤ê²Œí•œë‹¤
+	cout << "ahn.getArea() = " << ahn.getArea() << endl; //Circle.cpp ì— ì˜í•´ getAreaëŠ” 10 ì…ë ¥
 	cout << "hansung->getArea() = " << hansung->getArea() << endl;
 
-	hansung = &young; //youngÀÇ ÁÖ¼Ò¸¦ hansungÀÌ °¡¸®Å°°ÔÇÑ´Ù
+	hansung = &young; //youngì˜ ì£¼ì†Œë¥¼ hansungì´ ê°€ë¦¬í‚¤ê²Œí•œë‹¤
 	cout << "young.getArea() = " << young.getArea() << endl;
 	cout << "hansung->getArea() = " << hansung->getArea() << endl;
 
 	/////////////////////////////////////////////////////////////////////////////////
 
-	// Cricle lim[3]; //¿ÀºêÁ§Æ® 3°³ »ı¼º, ÀÌ°Ç ÀÔ·Â¾ø´Â »ı¼ºÀÚ¸¸ °¡´ÉÇÔ, »ı¼ºÀÚÇÔ¼ö 3¹øºÎ¸§
-	// Cricle *tae[3]; //»ı¼ºÀÌ ¾Æ´Ï¶ó, ¿ÀºêÁ§Æ® 3°³¸¦ °¡¸®Å°´Â ÁÖ¼Ò, »ı¼ºÀÚÇÔ¼ö 0¹ø ºÎ¸§
-	//ÀÌ·±½ÄÀ¸·Î ¾¸
+	// Cricle lim[3]; //ì˜¤ë¸Œì íŠ¸ 3ê°œ ìƒì„±, ì´ê±´ ì…ë ¥ì—†ëŠ” ìƒì„±ìë§Œ ê°€ëŠ¥í•¨, ìƒì„±ìí•¨ìˆ˜ 3ë²ˆë¶€ë¦„
+	// Cricle *tae[3]; //ìƒì„±ì´ ì•„ë‹ˆë¼, ì˜¤ë¸Œì íŠ¸ 3ê°œë¥¼ ê°€ë¦¬í‚¤ëŠ” ì£¼ì†Œ, ìƒì„±ìí•¨ìˆ˜ 0ë²ˆ ë¶€ë¦„
+	//ì´ëŸ°ì‹ìœ¼ë¡œ ì”€
 	//tae[0] = &lim[0];
 	//tae[1] = &lim[1];
 	//tae[2] = &lim[2];
@@ -28,7 +28,7 @@ int main() {
 	//cout << "lim[1].getArea() = " << lim[1].getArea() << endl;
 	//cout << "tae[1]->getArea() = " << tae[1]->getArea() << endl;
 
-	//¸¸¾à ÀÔ·ÂÀÖ´Â »ı¼ºÀÚ¸¦ ¾²°í ½Í´Ù¸é
+	//ë§Œì•½ ì…ë ¥ìˆëŠ” ìƒì„±ìë¥¼ ì“°ê³  ì‹¶ë‹¤ë©´
 	//Circle kim[3] = {Circle(), Circle(), Circle()};
 	//Circle kim[3] = {Circle(20), Circle(), Circle(40)};
 	//Circle kim[3] = {Circle(20), Circle(30), Circle(40)};
@@ -37,7 +37,7 @@ int main() {
 	
 	//Circle *han, *sung;
 
-	 //µ¿Àû ¸Ş¸ğ¸® ÇÒ´ç, ÁÖ¼Ò¸¦ °¡Á®¿ÀÁö ¾Ê°í ¸Ş¸ğ¸® ÇÒ´ç
+	 //ë™ì  ë©”ëª¨ë¦¬ í• ë‹¹, ì£¼ì†Œë¥¼ ê°€ì ¸ì˜¤ì§€ ì•Šê³  ë©”ëª¨ë¦¬ í• ë‹¹
 	//han = new Circle();
 	//sung = new Circle(20);
 
