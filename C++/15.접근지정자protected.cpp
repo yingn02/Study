@@ -4,16 +4,16 @@ using namespace std;
 #include "ColorPoint.h"
 
 int main() {
-	Point p; //±âº» Å¬·¡½ºÀÇ °´Ã¼ »ı¼º
+	Point p; //ê¸°ë³¸ í´ë˜ìŠ¤ì˜ ê°ì²´ ìƒì„±
 	p.set(2, 3);
-	//Á¢±ÙÁöÁ¤ÀÚ ¿À·ù protected, protected´Â »ó¼Ó¹ŞÀº Å¬·¡½º¸¸ »ç¿ë °¡´É
-	p.x = 5; //¿À·ù È®ÀÎ
-	p.y = 5; //¿À·ù È®ÀÎ
+	//ì ‘ê·¼ì§€ì •ì ì˜¤ë¥˜ protected, protectedëŠ” ìƒì†ë°›ì€ í´ë˜ìŠ¤ë§Œ ì‚¬ìš© ê°€ëŠ¥
+	p.x = 5; //ì˜¤ë¥˜ í™•ì¸
+	p.y = 5; //ì˜¤ë¥˜ í™•ì¸
 	p.showPoint();
 
-	ColorPoint cp; // ÆÄ»ı Å¬·¡½ºÀÇ °´Ã¼ »ı¼º
-	cp.x = 10; //¿À·ù È®ÀÎ
-	cp.y = 10; //¿À·ù È®ÀÎ
+	ColorPoint cp; // íŒŒìƒ í´ë˜ìŠ¤ì˜ ê°ì²´ ìƒì„±
+	cp.x = 10; //ì˜¤ë¥˜ í™•ì¸
+	cp.y = 10; //ì˜¤ë¥˜ í™•ì¸
 	cp.set(3, 4);
 	cp.setColor("Red");
 	cp.showColorPoint();
