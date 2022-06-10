@@ -2,12 +2,12 @@
 using namespace std;
 
 void showWidth() {
-	cout.width(10); // ´ÙÀ½¿¡ Ãâ·ÂµÇ´Â "hello"¸¦ 10 Ä­À¸·Î ÁöÁ¤
+	cout.width(10); // ë‹¤ìŒì— ì¶œë ¥ë˜ëŠ” "hello"ë¥¼ 10 ì¹¸ìœ¼ë¡œ ì§€ì •
 	cout << "Hello" << endl;
-	cout.width(5); // ´ÙÀ½¿¡ Ãâ·ÂµÇ´Â Á¤¼ö 12¸¦ 5 Ä­À¸·Î ÁöÁ¤
+	cout.width(5); // ë‹¤ìŒì— ì¶œë ¥ë˜ëŠ” ì •ìˆ˜ 12ë¥¼ 5 ì¹¸ìœ¼ë¡œ ì§€ì •
 	cout << 12 << endl;
 	cout << '%';
-	cout.width(10); // ´ÙÀ½¿¡ Ãâ·ÂµÇ´Â "Korea/"¸¸ 10 Ä­À¸·Î ÁöÁ¤
+	cout.width(10); // ë‹¤ìŒì— ì¶œë ¥ë˜ëŠ” "Korea/"ë§Œ 10 ì¹¸ìœ¼ë¡œ ì§€ì •
 	cout << "Korea/" << "Seoul/" << "City" << endl;
 }
 
