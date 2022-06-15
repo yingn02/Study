@@ -9,15 +9,15 @@ int main() {
 
 	ifstream fin(file);
 	if (!fin) {
-		cout << file << " ¿­±â ¿À·ù" << endl;
+		cout << file << " ì—´ê¸° ì˜¤ë¥˜" << endl;
 		return 0;
 	}
 	int count = 0;
 	int c;
-	while ((c = fin.get()) != EOF) { // EOF¸¦ ¸¸³¯ ¶§±îÁö ¹®ÀÚ ÀÐ±â
+	while ((c = fin.get()) != EOF) { // EOFë¥¼ ë§Œë‚  ë•Œê¹Œì§€ ë¬¸ìž ì½ê¸°
 		cout << (char)c;
 		count++;
 	}
-	cout << "ÀÐÀº ¹ÙÀÌÆ® ¼ö´Â " << count << endl;
-	fin.close(); // ÆÄÀÏ ´Ý±â
+	cout << "ì½ì€ ë°”ì´íŠ¸ ìˆ˜ëŠ” " << count << endl;
+	fin.close(); // íŒŒì¼ ë‹«ê¸°
 }
