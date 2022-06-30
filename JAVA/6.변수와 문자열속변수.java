@@ -10,7 +10,7 @@ public class hello {
 		System.out.println(c); // 문자열
 		
 		String d = "선생님";
-		System.out.println("Hello, "+d+" Bye, "+d+"");
+		System.out.println("Hello, "+d+" Bye, "+d+""); // Hello, 선생님 Bye, 선생님
 		
 		
 		
