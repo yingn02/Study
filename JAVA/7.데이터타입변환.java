@@ -1,5 +1,7 @@
 public class hello {
 	public static void main(String[] args) {
+		// 데이터타입변환 (Casting)
+		
 		int a = (int)1.1;
 		System.out.println(a); // 1
 		
