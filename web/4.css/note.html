@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4장</title>
+
+    <style>
+        /*
+        body {
+            background-color: linen;
+            color: blueviolet;
+            margin-left: 30px;
+            margin-right: 30px;
+        }
+        h4 {
+            color: darkred;
+            text-align: center;
+        }
+        */
+    </style>
+
+    <link rel="stylesheet" href="./note.css">
+
+</head>
+
+<body>
+    <h1>CSS</h1>
+    HTML 문서의 색이나 모양 등 외관을 꾸미는 언어<br>
+    CSS로 작성된 코드를 '스타일 시트'라고 부른다<br>
+    CSS의 기능: 색상과 배경, 폰트, 박스모델, 리스트, 테이블 등<br>
+    <hr>
+
+    <h1>CSS3 스타일 시트 구성</h1>
+    span 태그의 텍스트를 20픽셀 blue로 출력하는 예<br>
+    <img src="media/img1.png" alt=""><br>
+    <br>
+    셀렉터: CSS3 스타일 시트를 HTML 페이지에 적용하도록 만든 이름<br>
+    프로퍼티: 스타일 속성 이름<br>
+    값: 프로퍼티의 값<br>
+    주석문: 설명문이며, 여러 줄, 아무 위치에서나 사용 가능<br>
+    대소문자 구분이 없다<br>
+    <br>
+    style 태그는 head 태그 내에서 사용<br>
+    style 태그는 여러 번 작성 가능(스타일 시트들이 합쳐 사용)<br>
+    style 태그에 작성된 스타일 시트는 웹페이지 전체에 적용<br>
+    <hr>
+
+    <h1>HTML문서에 CSS3 스타일 시트 만드는 법 3가지</h1>
+    <ol>
+        <li>style 태그에 스타일 시트 작성</li>
+        <li>style 속성에 스타일 시트 작성</li>
+        <li>스타일 시트를 별도 파일로 작성(link 태그나 @import로 불러 사용)</li>
+    </ol>
+    <h3>1.style 태그에 스타일 시트 작성</h3>
+    <img src="media/img2.png" alt=""><br>
+    <br>
+    <h3>2.style 속성에 스타일 시트 작성</h3>
+    <img src="media/img3.png" alt=""><br>
+    ※해당 태그에만 스타일 적용, 1보다 우선순위 높음<br>
+    <h3>3.스타일 시트를 별도 파일로 작성</h3>
+    link 태그로 CSS3 파일 불러오기<br>
+    <img src="media/img4.png" alt=""><br>
+    또는<br>
+    <img src="media/img5.png" alt=""><br>
+    <h4>소연재</h4>
+    <br>
+    <p>
+        저는 체조 선수 소연재입니다. 음악을 들으면서 책읽기를 좋아합니다.
+        김치찌개와 막국수를 무척 좋아합니다.
+    </p>
+    <hr>
+
+    <h1>CSS3 규칙 - 스타일 합치기와 오버라이딩</h1>
+    <h3>태그에 적용 가능한 스타일</h3>
+    (1에서 4로 갈수록 우선순위가 높다)
+    <ol>
+        <li>브라우저의 디폴트 스타일(아무것도 적용 안함)</li>
+        <li>스타일 시트 파일에 선언된 스타일(외부에서 가져오는 css 파일)</li>
+        <li>style 태그에 선언된 스타일(head 태그안의 style 태그안에 작성된 것)</li>
+        <li>style 속성에 선언된 스타일(우선 순위가 가장 높은 것)</li>
+    </ol>
+    이렇게 우선순위가 높은 것이 작성될 때마다,
+    스타일 합치기와 오버라이딩이 발생하게된다.
+    <hr>
+    
+    <h1>셀렉터</h1>
+    HTML 태그의 모양을 꾸밀 스타일 시트를 선택하는 기능<br>
+    <h3>태그 이름 셀렉터</h3>
+    태그 이름이 셀렉터로 사용되는 유형<br>
+    셀렉터와 같은 이름의 모든 태그에 CSS3 스타일 시트 적용<br>
+    여러개의 태그에 적용하고 싶다면 쉼표로 구분하여 작성<br>
+    <code>
+        h1, h2 {
+            color: red;
+        }
+    </code>
+    <h3>class 셀렉터</h3>
+    점(.)으로 시작하는 이름의 셀렉터<br>
+    class 속성이 같은 모든 태그에 적용<br>
+    <code>
+        .myclass {
+            color: yellow;
+        }
+    </code><br>
+    &lt;h3 class="myclass"&gt;태그에만 적용시키는 것도 가능<br>
+    <code>
+        h3.myclass {
+            color: green;
+        }
+    </code><br>
+    <h3>id 셀렉터</h3>
+    #으로 시작하는 이름의 셀렉터<br>
+    id 속성이 같은 모든 태그에 적용<br>
+    <code>
+        #myid {
+            color: blue;
+        }
+    </code><br>
+    <br>
+    <b>class와 달리, id는 절대로 중복할 수 없다</b><br>
+    <hr>
+
+    <h1>셀렉터 조합하기</h1>
+    <h3>자식 셀렉터</h3>
+    부모 자식 관계인 두 셀렉터를 '>' 기호로 조합<br>
+    <code>
+        div > strong {
+            color: red;
+        }
+    </code><br>
+
+    <h3>자손 셀렉터</h3>
+    자손 관계인 2개 이상의 태그 나열<br>
+    <code>
+        ul strong {
+            color: yellow;
+        }
+    </code><br>
+    <br>
+    <div>
+        자식 - div 태그안에 있는 <strong>자식 strong 태그</strong>의 내용만 변경<br>
+        <small>
+            자손 - div 태그안에 있는 <strong>모든 strong 태그</strong>의 내용을 변경<br>
+        </small>
+        <small>
+            자손 - div 태그안에 있는 <strong>모든 strong 태그</strong>의 내용을 변경<br>
+        </small>
+        <small>
+            자손 - div 태그안에 있는 <strong>모든 strong 태그</strong>의 내용을 변경<br>
+        </small>
+    </div>
+
+    <h3>전체 셀렉터와 속성 셀렉터</h3>
+    전체 셀렉터: 와일드 문자(*)를 사용하여 모든 태그에 적용시키는 셀렉터<br>
+    <code>
+        * {
+            color: green;
+        }
+    </code><br>
+    <br>
+    속성 셀렉터: HTML 태그의 특정 속성에 대해 값이 일치하는 태그에만 스타일 적용<br>
+    <code>
+        input[type=text] {
+            color: green;
+        }
+    </code><br>
+    type 속성값이 "text"인 &lt;input&gt; 태그에 적용<br>
+    (&lt;input type="text"&gt;)<br>  
+    <input type="text"><br>
+
+    <h3>가상 클래스 셀렉터</h3>
+    어떤 조건이나 상황에서 스타일을 적용하도록 만든 셀렉터<br>
+    예시 1)<br>
+    <code>
+        a:visited {
+            color: red;
+        }
+    </code><br>
+    방문한 &lt;a&gt;의 링크 텍스트 색을 green으로 출력<br>
+
+    예시 2)<br>
+    <code>
+        li:hover {
+            background-color: green;
+        }
+    </code><br>
+    li 태그에 마우스가 올라오면, green을 배경색으로 출력, 내려가면 복귀<br>
+    <br>
+    <a href="https://www.google.com">a:hover</a>
+    <hr>
+
+    <h1>CSS3에서 색 표현</h1>
+    3가지 방법이 있다
+    <ol>
+        <li>16진수 코드로 표현 -> div { color: #8A2BE2; }</li>
+        <li>10진수 코드와 RGB()로 표현 -> div { color: rgb(138, 43, 226); }</li>
+        <li>색 이름으로 표현 -> div { color: blueviolet; }</li>
+    </ol>
+    
+    <h3>색 관련 프로퍼티들</h3>
+    color : 색<br>
+    background-color : 색<br>
+    border-color : 색<br>
+
+    <h3>텍스트 꾸미기</h3>
+    text-indent : &lt;length&gt;|&lt;percentage&gt;; <-들여쓰기<br>
+    text-align : left|right|center|justify; <-정렬<br>
+    text-decoration : none|underline|overline|line-through; <-텍스트 꾸미기<br>
+    <br>
+    <b>text-indent 프로퍼티로 들여쓰기 하기</b><br>
+    &lt;p style="text-indent:3em"&gt;3em(3글자) 들여쓰기&lt;/p&gt;
+    <p style="text-indent:3em">3em(3글자) 들여쓰기</p>
+
+    <b>text-align 프로퍼티로 왼쪽 정렬하기</b><br>
+    &lt;p style="text-align: center;"&gt;가운데 정렬하기&lt;/p&gt;
+    <p style="text-align: center;">가운데 정렬하기</p>
+
+    <b>text-decoration 프로퍼티로 하이퍼링크에 밑줄 제거</b><br>
+    &lt;a href="http://www.naver.com" style="text-decoration:none"&gt;네이버&lt;/a&gt;
+    <br>
+    <a href="http://www.naver.com">네이버</a>
+    <a href="http://www.naver.com" style="text-decoration:none">네이버</a><br>
+    <hr>
+
+    <h1>CSS3의 표준 단위</h1>
+    HTML5에서는 단위를 사용하지 않으면 CSS 스타일 오류<br>
+    font-size: 3; <-오류<br>
+    font-size: 3px; <-정상<br>
+    <hr>
+    
+    <h1>폰트</h1>
+    <h3>폰트 형</h3>
+    <img src="media/img6.png" alt=""><br>
+    
+    <h3>폰트 제어 CSS3 프로퍼티</h3>
+    <b>폰트 패밀리, font-family</b><br>
+    font-family: Arial, "Times New Roman", Serif; (폰트가 없으면 오른쪽 선택)<br>
+    <br>
+    <b>폰트 크기, font-size</b><br>
+    font-size: 40px; (40픽셀 크기)<br>
+    font-size: medium; (중간 크기, 브라우저마다 다름)<br>
+    font-size: 1.6em; (현재 폰트의 1.6배 크기)<br>
+    <br>
+    <b>폰트 스타일, font-style</b><br>
+    font-style: italic; (이탤릭 스타일로 지정)<br>
+    <br>
+    <b>폰트 굵기, font-weight</b><br>
+    font-weight: 300; (100 ~ 900의 범위에서 300정도의 굵기)<br>
+    font-weight: bold; (700만큼 굵음)<br>
+    <br>
+    <h3>단축 프로퍼티, font</h3>
+    20픽셀로 이탤릭 스타일에 bold 굵기로 consolas체를 적용하고 싶을 때,<br>
+    font: italic bold 20px consolas, sans-serif;<br>
+    라고 작성하면 된다.<br>
+    <hr>
+
+    <h1>박스모델</h1>
+    HTML 태그는 사각형 박스로 다루어진다.<br>
+    박스 크기, 배경 색, 여백, 옆 박스와의 거리 등을 제어<br>
+    <h3>박스 모델의 구성</h3>
+    <b style="color: deepskyblue;">콘텐츠: HTML 태그의 텍스트나 이미지가 출력되는 부분</b><br>
+    <b style="color: orange;">패딩: 콘텐츠를 직접 둘러싸고 있는 내부 여백</b><br>
+    <b style="color: red;">테두리: 패딩 외부의 테두리, 직선이나 점선 혹은 이미지로 테두리를 그릴 수 있음</b><br>
+    <b style="color: black;">여백: 박스의 맨 바깥 영역이며 테두리 바깥의 공간으로 인접한 이웃 태그의 박스와의 거리</b><br>
+    <br>
+    <div class="box">
+        <span>DIVDIVDIV</span>
+    </div>
+    <br>
+    <h3>단축 프로퍼티</h3>
+    border-width: 3px;<br>
+    border-style: dotted; (점선)<br>
+    border-color: blue;<br>
+    이 세가지를 아래롸 같이 단축 시킬 수 있다.<br>
+    border: 3px dotted blue;<br>
+    <br>
+    <h3>다양한 테두리</h3>
+    <p style="border: 3px solid blue;">3픽셀 solid</p>
+    <p style="border: 3px none blue;">3픽셀 none</p>
+    <p style="border: 3px hidden blue;">3픽셀 hidden</p>
+    <p style="border: 3px dotted blue;">3픽셀 dotted</p>
+    <p style="border: 3px dashed blue;">3픽셀 dashed</p>
+    <p style="border: 3px double blue;">3픽셀 double</p>
+    <p style="border: 15px groove red;">15픽셀 groove</p>
+    <p style="border: 15px ridge red;">15픽셀 ridge</p>
+    <p style="border: 15px inset red;">15픽셀 inset</p>
+    <p style="border: 15px outset red;">15픽셀 outset</p>
+    <br>
+    <h3>둥근 모서리 테두리 만들기</h3>
+    <p style="padding: 50px; background-color: yellowgreen; border-radius: 50px;">
+        border-radius: 50px;
+    </p>
+    <p style="padding: 50px; background-color: yellowgreen; border-radius: 0px 20px 40px 60px;">
+        border-radius: 0px 20px 40px 60px;
+    </p>
+    <h3>이미지 테두리 만들기</h3>
+    <img src="media/img7.png" alt=""><br>
+    이미지를 잘라서 border에 두를 수 있다.<br>
+    <hr>
+
+    <h1>배경 다루기</h1>
+    background-color<br>
+    background-image<br>
+    background-position<br>
+    background-repeat<br>
+    <br>
+    <h3>단축 프로퍼티</h3>
+    이것 또한 배경을 꾸미는 여러 값을 한 번에 지정할 수 있다.<br>
+    예시) background: skyblue url("media/spongebob.png") center center/100px 100px repeat-y;<br>
+    <hr>
+
+    <h1>텍스트 그림자, text-shadow</h1>
+    <img src="media/img8.png" alt="">
+    <div style="text-shadow: 3px 3px red;">
+        text-shadow: 3px 3px red;
+    </div><br>
+    <div style="text-shadow: 3px 3px 5px red;">
+        text-shadow: 3px 3px 5px red;
+    </div><br>
+    <div style="color: yellow; text-shadow: 2px 2px 2px black, 0 0 25px blue, 0 0 5px darkblue;">
+        color: yellow; text-shadow: 2px 2px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    </div><br>
+    (블러를 3번 적용)<br>
+    <br>
+    <h3>box-shadow 프로퍼티</h3>
+    박스 전체에 그림자 효과를 줄 수 있다<br>
+    <div style="box-shadow: 10px 10px 5px darkblue;">
+        <img src="media/img9.png" alt="">
+    </div><br>
+    box-shadow: 10px 10px 5px darkblue;<br>
+    <hr>
+
+    <h1>마우스 커서 제어, cursor</h1>
+    HTML 태그 위에 마우스가 올라갈 때 마우스의 커서 모양 지정<br>
+    cursor: default;<br>
+    <br>
+    <b>
+        <p style="cursor: crosshair;">cursor: crosshair;</p>
+        <p style="cursor: help;">cursor: help;</p>
+        <p style="cursor: pointer;">cursor: pointer;</p>
+        <p style="cursor: progress;">cursor: progress;</p>
+        <p style="cursor: n-resize;">cursor: n-resize;</p>
+    </b>
+
+</body>
+</html>

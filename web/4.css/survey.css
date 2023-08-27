@@ -1,0 +1,23 @@
+html, body {
+    background-color: beige;
+    padding-left: 5%; padding-right: 5%;
+}
+
+h1 {
+    color: blue;
+    text-shadow: 2px 2px 2px black;
+}
+
+h3 {
+    color: blue;
+}
+
+fieldset, select, textarea {
+    box-shadow: 5px 5px 10px darkblue;
+}
+
+div {
+    font-size: 30px;
+    background-color: orange;
+    text-align: center;
+}
