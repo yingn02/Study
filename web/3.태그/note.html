@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>1장 ~ 3장</title>
+    </head>
+
+    <body>
+        <h1>HTML</h1>
+        Hyper Text Markup Language<br>
+        웹 페이지를 기술하기 위한 markup 언어<br>
+        웹 페이지의 내용과 구조를 담당하는 언어<br>
+        html tag를 통해 정보를 구조화<br>
+        HTML5:2014년 10월 28일 확정된 차세대 웹 표준
+        <hr>
+        <h1>HTML 기본 문법</h1>
+        &lt;p&gt;Hello&lt;/p&gt;<br>
+        위와 같은 것을 '요소 (element)'라고 하며,<br>
+        요소는 시작태그, 콘텐츠, 종료태그로 이루어져 있다.<br>
+        요소는 중첩이 가능하다.<br>
+        br, hr, img 와 같이 content가 없는 요소를 '빈 요소'라고 한다.<br>
+        <br>
+        &lt;img src="html.png"&gt;<br>
+        속성은 요소의 성질이며, 특징을 정의한다.<br>
+        이름 = 값 의 형태로 이루어져 있다.<br>
+        src는 어트리뷰트명, html.png는 어트리뷰트값에 해당한다.<br>
+        <br>
+        &lt;!--주석--&gt;<br>
+        위와 같은 방법으로 주석을 달 수 있다.<br>
+        <hr>
+        <h1>Semantic Web</h1>
+        <font size='5'><b>Not semantic tag</b></font>
+        <h2>It's semantic tag</h3>
+        위의 두 문장은 같아보이지만 다른 태그를 썼다.<br>
+        위 문장은 아무 의미없이 글씨크기를 5로 설정하고 굵게 표시한 것뿐이지만,<br>
+        아래 문장은 h2 태그로 감싼 의미있는 문장이다. Semantic tag를 사용한 것이다.<br>
+        즉, 시맨틱 태그란 '브라우저, 검색엔진, 개발자 모두에게 콘텐츠의 의미를 명확히 설명'하는 태그다.<br>
+        검색엔진 로봇은 크롤링과 인덱싱을 이용하여 검색결과를 보여주기 때문에 의미있게 태그를 사용하는 것이 중요하다.<br>
+        semantic element: div, span, ...<br>
+        non-semantic element: form, table, img, header, nav, footer, ...<br>
+        <hr>
+        <h1>Basic tags</h1>
+        <h1>h1 Hello World</h1>
+        <h2>h2 Hello World</h2>
+        <h3>h3 Hello World</h3>
+        <h4>h4 Hello World</h4>
+        <h5>h5 Hello World</h5>
+        <h6>h6 Hello World</h6>
+        <b>b Hello World</b><br>
+        <strong>strong Hello World</strong><br>
+        <i>i Hello World</i><br>
+        <em>em Hello World</em><br>
+        <small>small Hello World</small><br>
+        <mark>mark Hello World</mark><br>
+        <del>del Hello World</del><br>
+        <ins>ins Hello World</ins><br>
+        <sub>sub Hello World</sub><br>
+        <sup>sup Hello World</sup><br>
+        <p>p Hello World</p><br>
+        <pre>pre Hello World</pre><br>
+        <q>q Hello World</q><br>
+        <blockquote>
+            blockquote Hello World<br>
+        </blockquote>
+        <hr>
+        <h1>Hyperlink</h1>
+        &lt;a href="path"&gt;Google&lt;/a&gt;<br>
+        <a href="http://www.google.com" target="_blank">URL</a><br>
+        <a href="html/my.html">Local file</a><br>
+        <a href="file/my.pdf" download>Download file</a><br>
+        <a href="#">fragment identifer</a><br>
+        <a href="kiwi131024@gmail.com?Subject=Hello again">Send Mail</a><br>
+        <a href="javascript:alert('Hello');">Javascript</a><br>
+        <hr>
+        <h1>List & Table</h1>
+        <h3>순서없는 목록 (unordered list)</h3>
+        ul 태그를 이용<br>
+        <ul>
+            <li>커피</li>
+            <ul type="square">
+                <li>type="square"</li>
+                <li>라떼</li>
+                <li>밀크</li>
+            </ul>
+            <li>핫초코</li>
+            <li>녹차</li>
+        </ul>
+        <h3>순서있는 목록 (ordered list)</h3>
+        ol 태그를 이용<br>
+        <ol>
+            <li>주문을 한다</li>
+            <ol type="a">
+                <li>type="a"</li>
+                <li>차갑게</li>
+                <li>뜨겁게</li>
+            </ol>
+            <li>돈을 낸다</li>
+            <li>가져간다</li>
+        </ol>
+        <h3>테이블</h3>
+        <Table border="2" style="text-align: center;">
+            기본
+            <tr>
+                <th>th</th>
+                <th>태그는</th>
+                <th>굵어짐</th>
+            </tr>
+            <tr>
+                <td>행(row)은</td>
+                <td>tr</td>
+                <td>태그</td>
+            </tr>
+            <tr>
+                <td>열(col)은</td>
+                <td>td</td>
+                <td>태그</td>
+            </tr>
+            <tr>
+                <td>선은</td>
+                <td>attribute</td>
+                <td>border</td>
+            </tr>
+            <tr>
+                <td>정렬은</td>
+                <td>style</td>
+                <td>text-align</td>
+            </tr>
+        </Table>
+        <br>
+        <Table border="2">
+            2개의 column을 span
+            <tr>
+                <th>Name</th>
+                <th colspan="2">Telephone</th>
+            </tr>
+            <tr>
+                <td>이름</td>
+                <td>전화번호1</td>
+                <td>전화번호2</td>
+            </tr>
+        </Table>
+        <br>
+        <Table border="2">
+            2개의 row를 span
+            <tr>
+                <th>Name</th>
+                <td>이름</td>
+            </tr>
+            <tr>
+                <th rowspan="2">Telephone</th>
+                <td>전화번호1</td>
+            </tr>
+            <tr>
+                <td>전화번호2</td>
+            </tr>
+        </Table>
+        <hr>
+        <h1>Image, Audio, Video</h1>
+        <h3>이미지, img 태그</h3>
+        <img src="media/img1.png" alt="" width="300" height="100">
+        <h3>오디오, audio 태그</h3>
+        속성(attribute): controls autoplay<br>
+        <audio src="media/audio1.mp3" controls autoplay></audio>
+        <h3>비디오, video 태그</h3>
+        속성(attribute): controls<br>
+        <video src="media/video1.mp4" controls width="480"></video>
+        <hr>
+        <h1>웹 폼</h1>
+        웹 페이지에서 사용자 입력을 받는 폼<br>
+        예를 들면, 로그인, 등록, 검색, 예약, 쇼핑 등이 있다.<br>
+        아이디나 비밀번호를 입력하는 입력란이 '폼 요소'라고 할 수 있다.<br>
+        <br>
+        input 태그에서 type을 password로 지정하면 입력하는 내용이 보이지 않음<br>
+        textarea 태그를 이용하면 긴 글을 입력받을 수 있음
+        <form action="">
+            사용자 ID: <input type="text" value="ID를 입력하세요"><br>
+            비밀번호: <input type="password"><br>
+            <input type="submit" value="로그인"><br>
+            <br>
+            자기소개: <textarea name="" id="" cols="30" rows="10"></textarea>
+        </form>
+        <hr>
+        <h1>체크박스 만들기</h1>
+        type를 checkbox로 설정
+        <h3>선호하는 메뉴를 체크하세요</h3>
+        <form action="">
+            짜장면 <input type="checkbox"><br>
+            짬뽕 <input type="checkbox"><br>
+            탕수육 <input type="checkbox"><br>
+            일회용 용기 거부<input type="checkbox" checked>
+        </form>
+        <hr>
+        <h1>라디오버튼 만들기</h1>
+        type를 radio로 설정, 반드시 name이 있어야함, name이 같은 것은 하나만 선택하도록 함<br>
+        4가지 메뉴는 모두 name이 china이므로 그 중 하나만 선택할 수 있도록 되어있음
+        <h3>선택하세요</h3>
+        <form action="">
+            <input type="radio" name="china">
+            짜장면 <img src="media/menu1.jpg" alt="" width="100">
+            <br>
+            <input type="radio" name="china">
+            짬뽕 <img src="media/menu2.jpg" alt="" width="100">
+            <br>
+            <input type="radio" name="china">
+            탕수육 <img src="media/menu3.jpg" alt="" width="100">
+            <br>
+            <input type="radio" name="china">
+            일회용 용기 거부<img src="media/menu4.jpg" alt="" width="100">
+            <br>
+        </form>
+        <hr>
+        <h1>콤보박스 만들기</h1>
+        name과 value는 꼭 필요하진 않아서 넣지 않았음
+        <h3>선택하세요</h3>
+        <form action="">
+            <select name="" id="">
+                <option value="" selected>소 (1인분)</option>
+                <option value="">중 (2인분)</option>
+                <option value="">대 (3인분)</option>
+            </select>
+        </form>
+        <hr>
+        <h1>label 태그</h1>
+        위와 같은 것을 '선택형 요소'라고 한다.<br>
+        선택형 요소의 캡션을 label 태그로 감싸면,<br>
+        캡션 텍스트나 이미지를 선택해도 폼 요소를 선택할 수 있다.<br>
+        <br>
+        <form action="">
+            <label>짜장면 <input type="checkbox"><br></label>
+            <label>짬뽕 <input type="checkbox"><br></label>
+            <label>탕수육 <input type="checkbox"><br></label>
+            <label>일회용 용기 거부<input type="checkbox" checked></label>
+        </form>
+        <hr>
+        <h1>폼 요소의 그룹핑</h1>
+        fieldset 태그로 감싸면 선이 감싸진다
+        legend 태그로 제목을 표시 (메뉴)
+        <form action="">
+             <fieldset>
+                <legend>메뉴</legend>
+                <label>짜장면 <input type="checkbox"><br></label>
+                <label>짬뽕 <input type="checkbox"><br></label>
+                <label>탕수육 <input type="checkbox"><br></label>
+                <label>일회용 용기 거부<input type="checkbox" checked></label>   
+             </fieldset>
+          </form>
+    </body>
+</html>
