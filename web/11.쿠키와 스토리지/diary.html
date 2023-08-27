@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4번문제</title>
+</head>
+<body>
+    <h3>일기쓰기</h3>
+    <hr>
+    오늘:
+    <script>
+        let day = new Date();
+        let y = day.getFullYear();
+        let m = parseInt(day.getMonth()+1);
+        let d = day.getDate();
+        document.write(y + "." + m + "." + d);
+        
+
+    </script>
+    <br>
+    <input id="textbox" type="text" style="width: 400px; height: 200px;">
+    <br>
+    <button type="button" id="save" onclick="store()">저장</button>
+    <button type="button" id="retrieve" onclick="retrieve()">보기</button>
+    <script>
+        let textbox = document.getElementById("textbox");
+
+        function store() { // e는 이벤트 객체
+            if(!window.sessionStorage) {
+                alert("세션 스토리지를 지원하지 않습니다.");
+                return;
+            }
+            sessionStorage.setItem("textbox", textbox.value);
+            sessionStorage.setItem("y", y);
+            sessionStorage.setItem("m", m);
+            sessionStorage.setItem("d", d);
+        }
+
+        function retrieve() { // e는 이벤트 객체
+            window.open("diary_2.html", "myWin", "left=300,top=300,width=400,height=300");
+
+        }
+    </script>
+
+</body>
+</html>

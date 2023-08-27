@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>2번문제검색</title>
+
+
+
+</head>
+
+<body>
+    <h3>세션 스토리지에 구입 리스트 검색</h3>
+    <hr>
+    품목명 : <input id="item" type="text">
+    개수 : <input id="count" type="text"><br>
+    <button type="button" id="retrieve" onclick="retrieve()">검색</button>
+    <script>
+        let item = document.getElementById("item");
+        let count = document.getElementById("count");
+        let item_v = sessionStorage.getItem("item_v"); //테니스라켓
+        let count_v = sessionStorage.getItem("count_v"); //3
+
+        function retrieve() { // e는 이벤트 객체
+            if(!window.sessionStorage) {
+                alert("세션 스토리지를 지원하지 않습니다.");
+                return;
+            }
+
+            if(item_v == null)
+                alert(item_v + "는 구입 리스트에 없습니다.");
+            else
+                count.value = count_v;
+        }
+    </script>
+
+</body>
+</html>

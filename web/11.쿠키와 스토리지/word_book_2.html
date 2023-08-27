@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        for(let a=0; a<localStorage.length; a++) { //단어장 출력, 로컬스토리지에 값 있는만큼
+            let key = localStorage.key(a); //a번째 키값을 key에 대입
+            let val = localStorage.getItem(key); //가져온 키값의 value 데리고 옴
+
+            document.write("<span>" + (a+1)+ ": </span>");
+            document.write("<span>" + key + "</span>");
+            document.write("<span>" + val + "</span><br>");
+        }
+    </script>
+
+
+</body>
+</html>

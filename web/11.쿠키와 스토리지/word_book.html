@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        영어 <input type="text" id="eng" size="20">
+        <br>
+        한글 <input type="text" id="kor" size="20">
+        <br>
+        <p>
+            <input type="button" value="단어저장" onclick="store()">
+            <input type="button" value="영단어 검색" onclick="search()">
+            <input type="button" value="단어 삭제" onclick="remove()">
+            <input type="button" value="전체 보기" onclick="viewAll()">
+        </p>
+    </form>
+    <script>
+        function store() {
+            if(!window.localStorage) {
+                alert("로컬스토리지 지원안함");
+                return;
+            }
+            let eng = document.getElementById("eng").value;
+            let kor = document.getElementById("kor").value;
+
+            localStorage.setItem(eng, kor);
+        }
+
+        function search() {
+            
+        }
+
+        function remove() {
+            
+        }
+
+        function viewAll() {
+            window.open("word_book_2.html", "viewin"); //새 윈도우 열기
+        }
+
+    </script>
+
+
+
+
+</body>
+</html>

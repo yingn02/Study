@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4번문제</title>
+</head>
+<body onload="retrieve()">
+
+    <script>
+        function retrieve() { // e는 이벤트 객체
+            if(!window.sessionStorage) {
+                alert("세션 스토리지를 지원하지 않습니다.");
+                return;
+            }
+
+            let y = sessionStorage.getItem("y");
+            let m = sessionStorage.getItem("m");
+            let d = sessionStorage.getItem("d");
+            let textbox = sessionStorage.getItem("textbox");
+
+            document.write(y + "." + m + "." + d + "에 쓴 일기입니다." + "<br>");
+            document.write(textbox);
+        }
+    </script>
+</body>
+</html>
