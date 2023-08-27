@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function printStar() {
+            let star = prompt("정수를 입력하세요");
+            let n = parseInt(star);
+            if(isNaN(n))
+                document.write("입력 오류 입니다.");
+            else {
+                for(let i = 1; i <= n; i++) {
+                    for(let j = 1; j <= i; j++) {
+                        document.write("*");
+                    }
+                    document.write("<br>");
+                }
+            }
+        }
+    </script>
+
+
+
+
+</head>
+
+<body>
+    <h1>별 문자 출력하기</h1>
+    <hr>
+    <script>printStar();</script>
+    <h1>6-1, 6-2</h1>
+    <hr>
+    <script>
+        function big(a, b) {
+            return (a > b)? a : b; 
+        }
+    </script>
+    <script>
+        let b = big("625", "555");
+        document.write("큰수=" + b);
+    </script>
+    <br>
+    <br>
+    <br>
+    <script>
+        function pr(str, n) {
+            for(let i = 0; i < n; i++) {
+                document.write(str);
+            }
+        }
+    </script>
+    <script>
+        pr("%", 5)
+    </script>
+    
+
+</body>
+</html>

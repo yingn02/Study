@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6장</title>
+
+    <script>
+        function evalParseIntIsNaN() {
+            let res = eval("2*3+4*6"); // res는 30
+            document.write("eval(\"2*3+4*6\")는" + res + "<br>");
+            let m = parseInt("32");
+            document.write("parseInt(\"32\")는" + m + "<br>");
+            let n = parseInt("0x32");
+            document.write("parseInt(\"0x32\")는" + n + "<br><br>");
+            // "hello"는 정수로 변환할수 없으므로 parseInt("hello")는 NaN 리턴
+            n = parseInt("hello"); // n = NaN
+            if(isNaN(n)) // true
+            document.write("hello는 숫자가 아닙니다.");
+        }
+    </script>
+    <script>
+        function count() {
+            let start = 1;
+            let end = 10;
+            for(let num=start; num<=end; num++) {
+                document.write(num + " ")
+            }
+            document.write("<br>");
+        }
+            
+    </script>
+    <script>
+        function count2(start, end) {
+            for(let num=start; num<=end; num++) {
+                // let strLength = num.toString().length;
+                // if(strLength == 1) document.write(“0”);
+                document.write(num + " ")
+            }
+            document.write("<br>");
+        }
+    </script>
+    <script>
+        function count3() {
+            let start = 1;
+            let end = 10;
+            let wrt = "";
+            for(let num=start; num<=end; num++) {
+                wrt += num + " ";
+            }
+            wrt += "<br>";
+            return wrt;
+        }
+    </script>
+    <script>
+        function count4(start, end) {
+        let wrt = "";
+        for(let num=start; num<=end; num++) {
+        wrt += num + " ";
+        }
+        wrt += "<br>";
+        return wrt;
+        }
+    </script>
+    <script>
+        function mOver(obj) {
+            yellow.style.background = "green";
+            obj.style.color = "red";
+        }
+        function mOut() {
+            yellow.style.background = "yellow";
+            text.style.color="blue";
+        }
+    </script>
+        
+    
+    
+
+</head>
+
+<body id="yellow" onclick="style.background='aliceblue'">
+    <h1>자바스크립트</h1>
+    자바스크립트 코드 작성이 가능한 위치<br>
+    <ol>
+        <li>HTML 태그의 이벤트 리스너 속성에 작성</li>
+        <li>script 태그에 작성</li>
+        <li>자바스크립트 파일에 작성</li>
+        <li>URL 부분에 작성</li>
+    </ol>
+    <hr>
+    <h1>자바스크립트로 HTML 콘텐츠 출력</h1>
+    <code>
+        document.write("내용");<br>
+    </code>
+    <script>
+        document.write("2 + 5는 <mark>7</mark>입니다");
+    </script>
+    <hr>
+    <h1>자바스크립트 다이얼로그</h1>
+    <code>
+        prompt("메시지", "디폴트 입력값");
+    </code><br>
+    <img src="./media/img1.png" alt="" width="500px"><br>
+    <code>
+        confirm("메시지");
+    </code><br>
+    <img src="./media/img2.png" alt="" width="500px"><br>
+    <code>
+        alert("메시지");
+    </code><br>
+    <img src="./media/img3.png" alt="" width="500px"><br>
+    <hr>
+    <h1>자바스크립트 식별자</h1>
+    <ul>
+        <li>첫 번째 문자: 알파벳, 언더스코어, $ 문자만 가능</li>
+        <li>두 번째 문자: 위를 포함하여, 숫자도 가능</li>
+        <li>대소문자는 구분되어 다루어짐</li>
+        <li>자바스크립트 예약어 사용 불가</li>
+    </ul>
+    <hr>
+    <h1>자바스크립트 문장</h1>
+    <ul>
+        <li>문장과 문장을 구분하기 위해 세미콜론 사용</li>
+        <li>주석문은 // 와 /* */ 사용 가능</li>
+    </ul>
+    <hr>
+    <h1>데이터 타입</h1>
+    <h3>자바스크립트 언어에서 다루는 데이터 종류</h3>
+    <ul>
+        <li>숫자 타입: 정수, 실수</li>
+        <li>논리 타입: 참, 거짓</li>
+        <li>문자열 타입: "문자열"</li>
+        <li>객체 레퍼런스 타입: 객체를 가리킴, C언어의 포인터와 유사</li>
+        <li>null: 값이 없음을 표시하는 특수 키워드</li>
+    </ul>
+    <h3>특징</h3>
+    <ul>
+        <li>자바스크립트에는 문자('a') 타입이 없다. 문자열("a")로 표현한다.</li>
+    </ul>
+    <hr>
+    <h1>변수, 상수</h1>
+    변수 선언: var, let<br>
+    상수 선언: const<br>
+    자바스크립트에는 변수 타입 없음<br>
+    <h3>변수의 사용 범위와 생명</h3>
+    <table border="1" style="border-collapse: collapse;">
+        <tr><th></th><th>선언</th><th>사용 범위</th><th>변수의 생명</th></tr>
+        <tr><td>전역 변수</td><td>함수 밖에서 선언 혹은 var/let 키워드 없이 아무 곳에서나 선언</td><td>프로그램 전역</td><td>프로그램이 실행을 시작할 때 생성, 프로그램 종료할 때 소멸</td></tr>
+        <tr><td>지역 변수</td><td>함수내에 let으로 선언</td><td>선언된 함수 내</td><td>함수가 실행될 때 생성, 함수가 종료될 때 소멸</td></tr>
+        <tr><td>블록 변수</td><td>let으로 if, while, for 등 블록 내에 선언</td><td>선언된 블록 내</td><td>블록의 실행 시작 시 생성, 블록이 끝나면 소멸</td></tr>
+    </table>
+    <h3>this로 전역변수 접근</h3>
+    지역 변수와 전역 변수의 이름이 같은데<br>
+    전역 변수에 접근하고자 할 때 : this.전역변수<br>
+    <img src="./media/img4.png" alt=""><br>
+    <b style="color: red;">단, let으로 선언된 전역 변수는 this로 접근 불가</b><br>
+    <h3>let의 특징</h3>
+    var x = 1;<br>
+    var x = 2; // 새로운 변수 x 생성, 개발자의 실수로 코딩 오류 발생<br>
+    <br>
+    let x = 1;<br>
+    let x = 2; // 오류, 변수 x에 대한 재선언 불가능<br>
+    <br>
+    let은 변수 사용 범위를 블록 내로 제한
+    <h3>상수</h3>
+    const MAX = 10; // 10의 값을 가지는 상수 MAX 선언<br>
+    <br>
+    선언된 후 값 수정 불가능<br>
+    <br>
+    상수 재선언 불가능<br>
+    <br>
+    블록 범위에서만 사용
+    <h3>자바스크립트의 리터럴</h3>
+    리터럴(literal): 데이터 값 그 자체<br>
+    리터럴 종류<br>
+    <img src="./media/img5.png" alt="" width="720px">
+    <hr>
+    <h1>자바스크립트의 연산자</h1>
+    <h3>산술 연산자</h3>
+    더하기(+), 빼기(-), 곱하기(*), 나누기(/), 나머지(%)<br>
+    연산의 결과는 항상 <b>실수</b>다.
+    <h3>증감 연산자</h3>
+    변수 a가 있다면,<br>
+    a++ : a 반환 후 a 1증가<br>
+    a-- : a 반환 후 a 1감소<br>
+    ++a : a 1증가 후 a 반환<br>
+    --a : a 1감소 후 a 반환<br>
+    <h3>대입 연산자</h3>
+    대입 연산: 오른쪽 식의 결과를 왼쪽 변수에 대입<br>
+    <b>대입 연산자 종류</b><br>
+    <img src="./media/img6.png" alt="" width="720px">
+    <h3>비교 연산자</h3>
+    두 값을 비교하여, true 나 false의 결과를 내는 연산<br>
+    <b>비교 연산자 종류</b><br>
+    <img src="./media/img7.png" alt="" width="720px">
+    <h3>논리 연산자</h3>
+    AND: && / 두 값이 모두 true 일 때 true 리턴<br>
+    OR: || / 둘 중 하나라도 true 면 true 리턴<br>
+    NOT: !a / a가 true면 false 값을, false이면 true 값 리턴<br>
+    <h3>조건 연산자</h3>
+    let big = (x>y) ? x : y;<br>
+    // (x>y) 가 true면 x 반환, false면 y 반환<br>
+    <h3>비트 연산</h3>
+    <b>비트 논리 연산</b><br>
+    AND: & / 두 비트 모두 1이면 1, 아니면 0<br>
+    OR: | / 두 비트 모두 0이면 0, 아니면 1<br>
+    NOT: ~a / a가 1이면 0으로, 0이면 1로<br>
+    XOR: ^ / 두 비트가 다르면 1, 같으면 0<br>
+    <br>
+    <b>비트 시프트 연산</b><br>
+    시프트: 저장 공간에서 비트들의 오른쪽/왼쪽 이동<br>
+    <img src="./media/img8.png" alt="" width="720px;">
+    <h3>문자열 연산자</h3>
+    "abc" + "de" = "abcde"<br>
+    "abc" + 23 = "abc23"<br>
+    23 + "abc" = "23abc"<br>
+    <br>
+    <b>순서에 유의하도록 한다</b><br>
+    23 + 35 + "abc" = "58abc"<br>
+    "abc" + 23 + 35 = "abc2335"<br>
+    <br>
+    문자열에서도 비교 연산자를 사용할 수 있다<br>
+    <img src="./media/img9.png" alt="" width="720px;">
+    <hr>
+    <h1>자바스크립트의 비교문</h1>
+    <h3>if, if-else</h3>
+    예시<br>
+    <code>
+    <pre>
+        let grade;
+        let score = prompt(
+        ＂한성대님 점수를 입력하세요", 100);
+        score = parseInt(score); // 문자열을 숫자로 바꿈
+        if(score >= 90) // score가 90 이상
+            grade = "A";
+        else if(score >= 80) // 80 이상 90 미만
+            grade = "B";
+        else if(score >= 70) // 70 이상 80 미만
+            grade = "C";
+        else if(score >= 60) // 60 이상 70 미만
+            grade = "D";
+        else // 60 미만
+            grade = "F";
+        document.write(score + "는" + grade + "입니다.")
+    </pre>
+    </code>
+    <br>
+    <h3>switch</h3>
+    예시<br>
+    <code>
+    <pre>
+        let fruits="사과";
+        switch(fruits) {
+            case "바나나": 
+                price = 200; break;
+            case "사과":
+                price = 300; break;
+            case "체리":
+                price = 400; break;
+            default:
+                document.write("팔지 않습니다.");
+                price = 0;
+        }
+        // switch 문의 실행 결과 price=300
+    </pre>
+    </code>
+    <br>
+    <b>case문의 '값'은 const로 선언된 상수나 리터럴만 가능</b><br>
+    <b>case문의 '값'에 변수나 식은 사용 불가</b><br>
+    <hr>
+    <h1>자바스크립트의 반복문</h1>
+    <h3>for 문</h3>
+    예시<br>
+    <code>
+    <pre>
+        for(let i = 0; i &lt; 0; i++) {
+            document.write(i);
+        }
+    </pre>
+    </code>
+    <br>
+    <h3>while 문</h3>
+    예시<br>
+    <code>
+    <pre>
+        let i = 0;
+        while(i &lt; 10) {
+            document.write(1);
+            i++;
+        }
+    </pre>
+    </code>
+    <br>
+    <h3>do-while 문</h3>
+    예시<br>
+    <code>
+    <pre>
+        let i = 0;
+        do {
+            document.write(1);
+            i++;
+        } while(i &lt; 10);
+    </pre>
+    </code>
+    <h3>반복문 내의 break 문과 continue 문</h3>
+    break 문: 가장 안쪽 반복문 하나만 벗어나도록 함<br>
+    continue 문: 반복 코드 실행을 중단하고, 다음 반복으로 건너뜀<br>
+    <hr>
+    <h1>자바스크립트의 함수</h1>
+    <h3>함수의 구성</h3>
+    <code>
+    <pre>
+        function 함수이름(매개변수1, 매개변수2, ...) {
+            ...프로그램 코드...
+            결과를 리턴하는 return 문
+        }
+    </pre>
+    </code>
+    <b>전달인자와 매개변수는 1:1 대응 관계이다.</b>
+    <h3>자바스크립트에서 제공하는 전역 함수</h3>
+    <table border="1" style="border-collapse: collapse;">
+        <tr>
+            <th>전역 함수명</th><th>설명</th>
+        </tr>
+        <tr>
+            <td>eval("2*3 + 4*6")</td><td>식을 계산하여 나온 결과값을 리턴(30)</td>
+        </tr>
+        <tr>
+            <td>parseInt("32")</td><td>"32"를 10진수로 변환, 정수 32 리턴</td>
+        </tr>
+        <tr>
+            <td>parseInt("0x32")</td><td>"0x32"를 16진수로 해석, 정수 50 리턴</td>
+        </tr>
+        <tr>
+            <td>parseFloat(str)</td><td>str 문자열을 실수로 바꾸어 리턴</td>
+        </tr>
+        <tr>
+            <td>isFinite(value)</td><td>value 가 숫자면 true 리턴</td>
+        </tr>
+        <tr>
+            <td>isNON(value)</td><td>value 가 숫자가 아니면 true 리턴</td>
+        </tr>
+    </table>
+    <br>
+    <b>실습</b><br>
+    <script>
+        evalParseIntIsNaN();
+    </script>
+    <br>
+    <hr>
+    <h1>4가지 함수 적용 예제</h1>
+    <h3>입력X, 출력X</h3>
+    <script>
+        count();
+        count();
+    </script>
+    <br>
+    <h3>입력O, 출력X</h3>
+    <script>
+        count2(1, 10);
+        count2(11, 20);
+        count2(21, 30);
+    </script>
+    <br>
+    <h3>입력X, 출력O</h3>
+    <script>
+        let out = "";
+        out += count3();
+        out += count3();
+        out += count3();
+        document.write("최종 출력 결과<br>" + out);
+    </script>
+    <br>
+    <h3>입력O, 출력O</h3>
+    <script>
+        let out2 ="";
+        out2 += "<hr>";
+        out2 += count4(11, 20);
+        out2 += "<hr>";
+        out2 += count4(31, 40);
+        out2 += "<hr>";
+        document.write("<b>최종 출력 결과</b><br>" + out2);
+    </script>
+    <br><hr>
+    <h1>이벤트</h1>
+    <h3>배경색 바꾸기</h3>
+    <p>
+        <div style="background-color: #00ff00;">스타일 속성을 적용합니다.</div>
+    </p>
+    <p>
+        <span
+        onmouseover="this.style.background='#00eeee'"
+        onmouseout="this.style.background='#00aaaa'">
+            이벤트 속성 적용
+        </span>
+    </p>
+    <p>
+        <span id="text" onmouseover="mOver(this);" onmouseout="mOut();">함수 적용</span>
+    </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
