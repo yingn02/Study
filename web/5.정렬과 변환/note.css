@@ -1,0 +1,227 @@
+span {
+    background-color: yellow;
+}
+
+.relative {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 1px solid lightgray;
+    text-align: center;
+    color: white;
+    background-color: red;
+}
+
+#down:hover {
+    position: relative;
+    left: 20px;
+    top: 20px;
+    background-color: green;
+}
+
+#up:hover {
+    position: relative;
+    right: 20px;
+    bottom: 20px;
+    background-color: green;
+}
+
+.absolute {
+    position: absolute;
+    display: inline-block;
+    height: 20px;
+    width: 15px;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+.absolute_p {
+    position: absolute;
+    display: inline-block;
+    border: 1px solid lightgrey;
+}
+
+#fixed {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 100px;
+    padding: 5px;
+    background-color: red;
+    color: white;
+}
+
+#float {
+    float: right;
+    border: 1px dotted black;
+    width:  8em;
+    padding: 0.25em;
+    margin: 1em;
+}
+
+.zindex_div {
+    position: absolute;
+}
+
+.zindex_img {
+    position: absolute;
+}
+
+#s1 {
+    z-index: -3;
+    left: 10px;
+    top: 20px;
+}
+
+#s2 {
+    z-index: 2;
+    left: 40px;
+    top: 30px;
+}
+
+#s3 {
+    z-index: 3;
+    left: 80px;
+    top: 40px;
+}
+
+#s7 {
+    z-index: 7;
+    left: 120px;
+    top: 50px;
+}
+
+div > span {
+    visibility: hidden;
+}
+
+.overflow {
+    width: 15em;
+    height: 3em;
+    border: 1px solid lightgray;
+}
+
+#hidden {
+    overflow: hidden;
+}
+
+#visible {
+    overflow: visible;
+}
+
+#scroll {
+    overflow: scroll;
+}
+
+#tb tr:nth-child(even) {
+    background-color: aliceblue;
+}
+
+.stripe td{
+    border-bottom: 1px solid gray;
+    padding: 10px;
+    
+}
+
+#tb tr:hover {
+    background-color: pink;
+}
+
+input[type=text] {
+    color: red;
+    border: 2px solid skyblue;
+    border-radius: 5px;
+}
+
+input[type=text]:hover {
+    background-color: pink;
+}
+
+input[type=text]:focus {
+    font-size: 120%;
+}
+
+@keyframes textColorAnimation {
+    0% { color: blue; }
+    30% { color: green; }
+    100% { color: red; }
+}
+
+#ani_span {
+    animation-name: textColorAnimation;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    font-size: 50px;
+    font-weight: bold;
+    background-color: white;
+}
+
+@keyframes bomb {
+    from { font-size: 500%; }
+    to { font-size: 100%; }
+}
+
+#ani_span2 {
+    animation-name: bomb;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+
+    font-weight: bold;
+}
+
+#transition {
+    transition: font-size 5s;
+}
+
+#transition:hover {
+    font-size: 500%;
+}
+
+.tf {
+    padding: 5px;
+    color: white;
+    background-color: olivedrab;
+    width: 200px;
+    text-align: center;
+}
+
+#tf1:active {
+    transform: translate(1px, 2px);
+}
+
+#tf2:active {
+    transform: translateX(3px);
+}
+
+#tf3:active {
+    transform: translateY(3px);
+}
+
+#tf4:active {
+    transform: scale(3, 3);
+}
+
+#tf5:active {
+    transform: scaleX(3);
+}
+
+#tf6:active {
+    transform: scaleY(3);
+}
+
+#tf7:active {
+    transform: rotate(45deg);
+}
+
+#tf8:active {
+    transform: skew(30deg, 30deg);
+}
+
+#tf9:active {
+    transform: skewX(30deg);
+}
+
+#tf10:active {
+    transform: skewY(30deg);
+}

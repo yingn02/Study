@@ -1,0 +1,40 @@
+.first_list {
+    width: 200px;
+    padding-right: 10px;
+    background-color: aliceblue;
+}
+
+.first_list li:hover {
+    background-color: yellowgreen;
+}
+
+.secend_list {
+    width: 200px;
+    padding-right: 10px;
+    color: blue;
+    position: absolute;
+}
+
+.secend_list li:hover {
+    background-color: yellowgreen;
+}
+
+ol {
+    list-style-type: none;
+}
+
+ol > li {
+    display: block;
+}
+
+span {
+    font-size: 45px; font-style: italic; font-weight: bold;
+    color: green; 
+    vertical-align: top;
+}
+
+p {
+    display: inline-block;
+    width: 240px;
+    padding-left: 20px;
+}

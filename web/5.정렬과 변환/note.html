@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5장</title>
+
+    <link rel="stylesheet" href="note.css">
+
+</head>
+
+<body>
+    <h1>display</h1>
+    CSS3으로 HTML 태그가 출력되는 위치를 조절할 수 있다.
+    <h3>블록 박스와 인라인 박스</h3>
+    <div style="border-style: solid;">블록 박스는 새 라인에서 시작, 한 줄을 모두 점유</div>
+    <span>인라인 박스</span>는 블록 안에 배치, span처럼 <span>옆에 다른 태그</span>배치 가능<br>
+    <br>
+    <table border="2">
+        <tr><th>블록 박스</th> <th>인라인 박스</th> <th>인라인 블록 박스</th></tr>
+        <tr><td>항상 새 라인에서 시작</td> <td>새 라인에서 시작 못함<br>라인 안(inline)에 있음</td> <td>새 라인에서 시작 못함<br>라인 안(inline)에 있음</td></tr>
+        <tr><td>블록 박스 내에만 배치</td> <td>모든 박스 내 배치 가능</td> <td>모든 박스 내 배치 가능</td></tr>
+        <tr><td>옆에 다른 요소 배치 불가능</td><td>옆에 다른 요소 배치 가능</td> <td>옆에 다른 요소 배치 가능</td></tr>
+        <tr><td>width와 height로 크기 조절</td> <td>width와 height로 크기 조절 불가</td> <td>width와 height로 크기 조절</td></tr>
+        <tr><td>padding, border, margin 조절</td> <td>padding, border, margin 조절 불가</td> <td>padding, border, margin 조절</td></tr>
+    </table>
+    <hr>
+    <h1>박스의 배치: position</h1>
+    정적 배치(디폴트) -> position: static<br>
+    상대 배치 -> position: relative<br>
+    절대 배치 -> position: absolute<br>
+    고정 배치 -> position: fixed<br>
+    유동 배치 -> float: left / float: right<br>
+    
+    <h3>상대 배치, position: relative</h3>
+    h와 k에 마우스를 올려보세요<br>
+    <br>
+    <div class="relative">T</div>
+    <div class="relative" id="down">h</div>
+    <div class="relative">a</div>
+    <div class="relative">n</div>
+    <div class="relative" id="up">k</div>
+    <div class="relative">s</div>
+    <br>
+    <h3>절대 배치, position: absolute</h3>
+    <div class="absolute_p">
+        <img src="media/tree.jpg" alt="" width="200px" height="200px">
+        <p class="absolute" style="left: 50px; top: 30px">M</p>
+        <p class="absolute" style="left: 100px; top: 0px">E</p>
+        <p class="absolute" style="left: 100px; top: 80px">R</p>
+        <p class="absolute" style="left: 150px; top: 110px">R</p>
+        <p class="absolute" style="left: 30px; top: 130px">Y</p>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <h3>고정 배치, position: fixed</h3>
+    우측에 고정된 것을 볼 수 있다.<br>
+    <div id="fixed">position: fixed</div>
+    <br>
+    <h3>유동 배치, float: left / float: right</h3>
+    <div>
+        <p id="float">
+            float: right로 브라우저의 오른편에 항상 배치할 수 있다.
+        </p>
+        <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+            Minima cupiditate nesciunt commodi, maxime velit maiores 
+            magni nulla laborum, ratione doloremque beatae magnam 
+            assumenda facere. Enim, nam sequi. Deleniti, blanditiis vitae.
+        </p>
+    </div>
+    <hr>
+    <h1>z-index 프로퍼티</h1>
+    <div class="zindex_div">
+        <img class="zindex_img" id="s1" src="media/1.png" alt="1" width="100px">
+        <img class="zindex_img" id="s2" src="media/2.png" alt="2" width="100px">
+        <img class="zindex_img" id="s3" src="media/3.png" alt="3" width="100px">
+        <img class="zindex_img" id="s7" src="media/7.png" alt="7" width="100px">
+    </div>
+    <br><br><br><br><br><br><br><br><br><br>
+    <hr>
+    <h1>visibility로 텍스트 숨김</h1>
+    visibility: hidden<br>
+    <div>
+        I <span>love</span> you.<br>
+        CSS is Cascaing <span>Style</span> Sheet.<br>
+        응답하라 <span>1988</span><br>
+    </div>
+    <hr>
+    <h1>overflow 프로퍼티</h1>
+    <p class="overflow" id="hidden">
+        overflow에 hidden 값을 적용하면
+        박스를 넘어가는 내용이 잘려 보이지 않습니다
+    </p>
+    <p class="overflow" id="visible">
+        overflow에 visible 값을 적용하면
+        content가 박스를 넘어가서도 출력됩니다
+    </p>
+    <p class="overflow" id="scroll">
+        overflow에 scroll 값을 적용하면
+        박스에 스크롤바를 붙여 출력합니다
+    </p>
+    <hr>
+    <h1>리스트 꾸미기</h1>
+    리스트의 모양을 꾸미는 CSS3 프로퍼티<br>
+    list-style-type - 아이템 마커 타입 지정<br>
+    list-style-image - 아이템 마커 이미지 지정<br>
+    list-style-position - 아이템 마커의 출력 위치 지정(아이템 영역 내 혹은 영역 밖)<br>
+    list-style - 앞의 3개 프로퍼티 값을 한 번에 지정하는 단축 프로퍼티<br>
+    <hr>
+    <h1>표(Table) 꾸미기</h1>
+    <h3>border, width, height, padding 적용하기</h3>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>표 테두리 제어, border</th>
+                <th>셀 크기 제어, width height</th>
+                <th>셀 여백 및 정렬</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src="media/table1.png" alt="" height="265px"></td>
+                <td><img src="media/table2.png" alt="" height="265px"></td>
+                <td><img src="media/table3.png" alt="" height="265px"></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <th>여러가지 프로퍼티를</th><th>테이블에도</th><th>적용할 수 있다</th>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+    <h3>줄무늬 만들기</h3>
+    <code>
+        tbody tr:nth-child(even) {
+            background: aliceblue;
+        }
+    </code>
+    <br>
+    짝수 tr 태그에만 적용하는게 가능
+    <table class="stripe" style="border-collapse: collapse;">
+        <thead style="background-color: darkgray; color: yellow">
+            <tr>
+                <td>이름</td><td>HTML</td><td>CSS</td>
+            </tr>
+        </thead>
+        <tbody id="tb">
+            <tr>
+                <td>황기태</td><td>80</td><td>70</td>
+            </tr>
+            <tr>
+                <td>이재문</td><td>95</td><td>99</td>
+            </tr>
+            <tr>
+                <td>이병은</td><td>85</td><td>90</td>
+            </tr>
+            <tr>
+                <td>김남윤</td><td>50</td><td>40</td>
+            </tr>
+        </tbody>
+        <tfoot style="background-color: darkgray; color: yellow">
+            <tr>
+                <td>합계</td><td>310</td><td>249</td>
+            </tr>
+        </tfoot>
+    </table>
+    <br>
+    <hr>
+    <h1>폼 꾸미기</h1>
+    <code>
+    <pre>
+    input[type=text] {
+        color: red;
+        border: 2px solid skyblue;
+        border-radius: 5px;
+    }
+
+    input[type=text]:hover {
+        background-color: pink;
+    }
+
+    input[type=text]:focus {
+        font-size: 120%;
+    }
+    </pre>
+    </code>
+    <br>
+    <form action="">
+        이름:<input type="text">
+    </form>
+    <br>
+    <hr>
+    <h1>CSS3 스타일로 태그에 동적 변화 만들기</h1>
+    자바스크립트로 구현하던 것을 CSS3로 작성 가능<br>
+    <br>
+    3가지 기법을 지원한다.
+    <ol>
+        <li>애니메이션(animation)</li>
+        <li>전환(transition)</li>
+        <li>변환(transform)</li>
+    </ol>
+    <br>
+    <h3>1. 애니메이션</h3>
+    HTML 태그의 모양 변화를 시간 단위로 설정<br>
+    1. @keyframes 로 HTML 태그의 시간별 모양 변화 만들기<br>
+    <img src="media/ani1.png" alt=""><br>
+    2. 애니메이션 스타일 시트 작성<br>
+    <img src="media/ani2.png" alt=""><br>
+    <br>
+    <code>
+    <pre>
+    @keyframes textColorAnimation {
+        0% { color: blue; }
+        30% { color: green; }
+        100% { color: red; }
+    }
+
+    span {
+        animation-name: textColorAnimation;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+
+        font-size: 50px;
+        font-weight: bold;
+    }
+    </pre>
+    </code>
+    <p>
+        <span id="ani_span">span</span>태그의 텍스트를<br>
+        blue, green, red로 무한 반복
+    </p>
+    <br>
+    <code>
+    <pre>
+    @keyframes bomb {
+        from { font-size: 500%; }
+        to { font-size: 100%; }
+    }
+    
+    span {
+        animation-name: bomb;
+        animation-duration: 3s;
+        animation-iteration-count: infinite;
+
+        font-weight: bold;
+        background-color: yellow;
+    }
+    </pre>
+    </code>
+    <p>
+        <span id="ani_span2">3초동안 감소하는 텍스트(반복)</span>
+    </p>
+    <br><br><br>
+    <h3>2. 전환</h3>
+    HTML 태그에 적용된 CSS3 프로퍼티 값의 변화를 서서히 진행시켜 애니메이션 효과 생성<br>
+    HTML 태그의 색이나 모양, 위치 등이 서서히 변화는 효과<br>
+    전환 설정: transition 프로퍼티 이용<br>
+    <img src="media/transition.png" alt="" width = 700px><br>
+    <span id="transition">커서를 올리면 5초에 걸쳐 확대</span><br>
+    <br><br><br>
+    <h3>3. 변환</h3>
+    텍스트나 이미지를 회전, 확대 등<br>
+    다양한 기하학적인 모양으로 출력할 수 있게 해준다<br>
+    회전 각도의 단위는 deg이며, 시계방향으로 회전한다<br>
+    <br>
+    <b>transform에 사용 가능한 2차원 변환 함수들</b><br>
+    <img src="media/transform_table.png" alt="" width="1000px"><br>
+    마우스를 누르면 변환하게 해두었다<br>
+    <code>
+        div:active { transform: (함수); }
+    </code>
+    <br>
+
+    <div class="tf" id="tf1">translate(1px, 2px)</div>
+    <br>
+    <div class="tf" id="tf2">translateX(3px)</div>
+    <br>
+    <div class="tf" id="tf3">translateY(3px)</div>
+    <br>
+    <div class="tf" id="tf4">scale(3, 3)</div>
+    <br>
+    <div class="tf" id="tf5">scaleX(3)</div>
+    <br>
+    <div class="tf" id="tf6">scaleY(3)</div>
+    <br>
+    <div class="tf" id="tf7">rotate(45deg)</div>
+    <br>
+    <div class="tf" id="tf8">skew(30deg, 30deg)</div>
+    <br>
+    <div class="tf" id="tf9">skewX(30deg)</div>
+    <br>
+    <div class="tf" id="tf10">skewY(30deg)</div>
+    <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
