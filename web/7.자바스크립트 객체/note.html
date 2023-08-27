@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7장</title>
+
+<style>
+    strong {
+        color: red;
+    }
+
+    div {
+        border: 2px solid red;
+    }
+
+    code {
+        font-weight: bold;
+    }
+</style>
+
+</head>
+<body>
+    <h1>자바스크립트 객체</h1>
+    여러 개의 프로퍼티와 메소드로 구성<br>
+    프로퍼티: 객체의 고유한 속성(변수)<br>
+    메소드: 함수<br>
+    <br>
+    자바스크립트는 객체 <strong>기반</strong> 언어, 
+    객체 <strong>지향</strong> 언어 아님
+    <hr>
+    <h1>자바스크립트 객체 종류</h1>
+    <ol>
+        <li>코어 객체</li>
+        <li>HTML DOM 객체</li>
+        <li>브라우저 객체</li>
+    </ol>
+    <br>
+    document 객체는 BOM객체에 속하지만, document의 하위 객체는 DOM 객체에 속한다.<br>
+    <h3>코어 객체</h3>
+    웹페이지와 웹서버 등 어디서나 사용가능한 기본 객체<br>
+    <br>
+    종류: Array, Date, String, Math 등<br>
+    코어 객체 생성 - new 키워드를 이용<br>
+    객체가 생성되면 객체 내부에 프로퍼티와 메소드들 존재<br>
+    객체 접근 - 객체와 멤버 사이에 점(.) 연산자 이용<br>
+    <br>
+    <h3>배열 만들기 (Array)</h3>
+    <code>
+    <pre>
+    let plots = [20, 5, 8, 15, 20]; // 원소 5개의 배열 생성
+    document.write("var plots = [20, 5, 8, 15, 20]&lt;br&gt;");
+
+    for(let i=0; i &lt; 5; i++) {
+        let size = plots[i]; //plots 배열의 i번째 원소
+        while(size &gt; 0) {
+        document.write("*");
+        size--;
+        }
+    document.write(plots[i] + "&lt;br&gt;");
+    }
+    </pre>
+    </code>
+    <br>
+    <div>
+        <script>
+            let plots = [20, 5, 8, 15, 20]; // 원소 5개의 배열 생성
+            document.write("var plots = [20, 5, 8, 15, 20]<br>");
+    
+            for(let i=0; i<5; i++) {
+                let size = plots[i]; // plots 배열의 i번째 원소
+                while(size>0) {
+                document.write("*");
+                size--;
+                }
+                document.write(plots[i] + "<br>");
+            }
+        </script>
+    </div>
+
+    <br>
+    <h3>배열 원소의 개수, length 프로퍼티</h3>
+    let m = array.length; // 변수 m 에는 배열 array의 원소의 개수가 대입됨<br>
+    array.length = 10; // 배열 array의 크기를 10으로 만들 수 있음<br>
+    let array = [0, 5.5, "Hello", new Date(), convertFunction] //하나의 배열에 여러 타입이 섞여있어도 문제 없다.<br>
+    <h3>현재 시간 나타내기 (Date)</h3>
+    let now = new Date(); // 현재 날짜와 시간(시, 분, 초) 값으로 초기화된 객체 생성<br>
+    let start = new Date(2017, 2, 1); // 2017년 3월 1일 (2는 3월)<br>
+    <br>
+    <code>
+    <pre>
+    // Date 객체 생성
+    let today = new Date(); 
+    // Date 객체의 toLocaleString() 메소드 호출
+    document.write("현재 시간 : " + today.toLocaleString() + &lt;br&gt;");
+    </pre>
+    </code>
+    <br>
+    <div>
+        <script>
+            // Date 객체 생성
+            let today = new Date(); 
+            // Date 객체의 toLocaleString() 메소드 호출
+            document.write("현재 시간 : " + today.toLocaleString() + "<br>");
+        </script>
+    </div>
+
+    <br>
+    <h3>String</h3>
+    String 객체는 일단 생성되면 수정 불가능<br>
+    <br>
+    let hello = new String("Hello"); // String 객체 생성<br>
+    let hi = "Hi"; // String 객체 생성<br>
+    let m = hello.length; //문자열의 길이를 m에 대입, m = 5<br>
+    let c = hello[0]; // [] 연산자를 이용하여, 배열처럼 각 문자 접근이 가능함<br>
+    length 프로퍼티는 읽기 전용이다. 따라서 hello.length = 10; 같은 것은 불가<br>
+    <h3>Math</h3>
+    new Math()로 객체를 생성하지 않고 사용<br>
+    let sq = Math.sqrt(4); // 4의 제곱근을 구하여 sq 에 2 대입<br>
+    let area = Math.PI*2*2; // 반지름이 2인 원의 면적을 구하여 area 에 대입<br>
+    let r = Math.random()*100; // r은 0~99.000... 보다 작은 실수 난수<br>
+    let r2 = Math.random(r); // r은 0 ~ 99<br>
+    <hr>
+    <h1>사용자 객체</h1>
+    사용자가 새로운 타입의 객체 작성 가능: 3가지 방법 존재<br>
+    <ol>
+        <li>
+            직접 객체 만들기
+            <ul>
+                <li>new Object() 이용</li>
+                <li>리터럴 표기법 이용</li>
+            </ul>
+        </li>
+        <li>
+            객체의 틀(프로토타입)을 만들고 객체 생성하기
+        </li>
+    </ol>
+    <br>
+    <h3>new Object()로 객체 만들기</h3>
+    &lt;과정&gt;<br>
+    1. new Object() 로 빈 객체 생성<br>
+    2. 빈 객체에 프로퍼티 추가<br>
+    3. 빈객체에 메소드 추가<br>
+    <br>
+    let account = new Object(); // 1. new Object() 로 빈 객체 생성<br>
+    account.owner = "한성대"; // 2. 빈 객체에 프로퍼티 추가<br>
+    account.inquiry = inquiry; // 3. 빈객체에 메소드 추가<br>
+    <br>
+    <h3>리터럴 표기법으로 객체 만들기</h3>
+    중괄호를 이용하여 객체의 프로퍼티와 메소드 지정, 가장 흔한 방법<br>
+    <br>
+    <code>
+    <pre>
+    let account = {
+        // 프로퍼티 생성 및 초기화
+        owner: "황기태",
+        code: "111",
+        balance: 35000,
+
+        // 메소드 작성
+        inquiry: function() { return this.balance; }, // 메소드명을 앞에씀
+        deposit: function(money) { this.balance += money; } // 메소드명을 앞에씀
+    }  
+    </pre>
+    </code>
+    <br>
+    <h3>프로토타입</h3>
+    프로토타입: 객체의 모양을 가진 틀 (클래스와 같은 역할)<br>  
+    자바스크립트에서 제공하는 프로토타입: Array, Data, String<br>
+    객체 생성시 'new 프로토타입' 이용<br>
+    <br>
+    let week = new Array(7); //Array 는 프로토타입<br>
+    let hello = new String("hello"); //String 은 프로토타입<br>
+    <br>
+    <code>
+    <pre>
+        // 프로토타입 Student 작성
+        function Student(name, score) {
+            this.univ = "한국대학"; // this.univ을 이용하여 univ 프로퍼티 작성
+            this.name = name; // this.name을 이용하여 name 프로퍼티 작성
+            this.score = score; // this.score를 이용하여 score 프로퍼티 작성
+            this.getGrade = function () { // getGrade() 메소드 작성
+                if(this.score &gt; 80) return "A";
+                else if(this.score &gt; 60) return "B";
+                else return "F";
+            }
+        }
+    </pre>
+    </code>
+    <br>
+    <code>
+    <pre>
+        let kitae = new Student("황기태", 75); // Student 객체 생성
+        let jaemoon = new Student("이재문", 93); // Student 객체 생성
+        document.write(kitae.univ + ", " + kitae.name + "의 학점은 " + kitae.getGrade() + "&lt;br&gt;");
+        document.write(jaemoon.univ + ", " + jaemoon.name + "의 학점은 " + jaemoon.getGrade() + "&lt;br&gt;");
+    </pre>
+    </code>
+    <br>
+    <script>
+        // 프로토타입 Student 작성
+        function Student(name, score) {
+            this.univ = "한국대학"; // this.univ을 이용하여 univ 프로퍼티 작성
+            this.name = name; // this.name을 이용하여 name 프로퍼티 작성
+            this.score = score; // this.score를 이용하여 score 프로퍼티 작성
+            this.getGrade = function () { // getGrade() 메소드 작성
+                if(this.score > 80) return "A";
+                else if(this.score > 60) return "B";
+                else return "F";
+            }
+        }   
+    </script>
+    <div>
+        <script>
+            let kitae = new Student("황기태", 75); // Student 객체 생성
+            let jaemoon = new Student("이재문", 93); // Student 객체 생성
+            document.write(kitae.univ + ", " + kitae.name + "의 학점은 " + kitae.getGrade() + "<br>");
+            document.write(jaemoon.univ + ", " + jaemoon.name + "의 학점은 " + jaemoon.getGrade() + "<br>");
+        </script>
+    </div>
+    <hr>
+    <h1>실세계의 추상화</h1>
+    현실세계에 있는 것들을 추상화<br>
+    <h3>예시</h3>
+    <img src="./media/img1.png" alt=""><br>
+    <hr>
+    <h1>컴퓨팅 추상화</h1>
+    <h3>소를 자바스크립트로 표현해보기</h3>
+    <code>
+    <pre>
+        function give(feed) {
+            this.feedbox += feed;
+            document.write("feedbox:" + this.feedbox + "&lt;br&gt;");
+        }
+
+        function eat() {
+            while(this.feedbox &gt; 0) {
+                if(this.stomach &lt; 100) {
+                    document.write("먹기 ");
+                    this.feedbox -= 10;
+                    this.stomach += 10;
+                    document.write("feedbox:"+this.feedbox);
+                    document.write(", stomach:"+this.stomach);
+                    document.write("&lt;br&gt;");
+                } 
+                else {
+                    break;
+                }
+            }
+        }
+
+        let cattle = new Object(); // cattle이라는 객체 생성
+        cattle.stomach = 0; // 변수
+        cattle.feedbox = 0; // 변수
+        cattle.give = give; // 메서드
+        cattle.eat = eat; // 메서드
+
+        cattle.give(70);
+        cattle.eat();
+        cattle.give(50);
+        cattle.eat();
+        cattle.give(50);
+        cattle.eat();
+    </pre>
+    </code>
+    <br>
+    <div>
+        <script>
+            function give(feed) {
+                this.feedbox += feed;
+                document.write("feedbox:" + this.feedbox + "<br>");
+            }
+    
+            function eat() {
+                while(this.feedbox > 0) {
+                    if(this.stomach < 100) {
+                        document.write("먹기 ");
+                        this.feedbox -= 10;
+                        this.stomach += 10;
+                        document.write("feedbox:"+this.feedbox);
+                        document.write(", stomach:"+this.stomach);
+                        document.write("<br>");
+                    } 
+                    else {
+                        break;
+                    }
+                }
+            }
+    
+            let cattle = new Object(); // cattle이라는 객체 생성
+            cattle.stomach = 0; // 변수
+            cattle.feedbox = 0; // 변수
+            cattle.give = give; // 메서드
+            cattle.eat = eat; // 메서드
+    
+            cattle.give(70);
+            cattle.eat();
+            cattle.give(50);
+            cattle.eat();
+            cattle.give(50);
+            cattle.eat();
+        </script>
+    </div>
+
+</body>
+</html>

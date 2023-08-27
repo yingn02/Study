@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7장실습문제4</title>
+</head>
+
+<body>
+    <h1>일요일은pink, 다른 요일은 gold 배경</h1>
+    <hr>
+    오늘 :
+    <script>
+        let now = new Date(); // 현재 시간의 값을 가진 Date 객체 생성
+
+        document.write(now.getDate() + "일,");
+        // 수요일기준으로 getDay()는 3을 반환하는 것을 확인했다. = 4번째가 수요일
+        let day_array = ["일", "월", "화", "수", "목", "금", "토"];
+        document.write(day_array[now.getDay()] + "요일");
+
+        if(day_array[now.getDay()] == "일") //일요일이면
+            document.body.style.backgroundColor = "pink"; // pink
+        else // 그 외
+            document.body.style.backgroundColor = "gold"; // gold
+    </script>
+
+</body>
+</html>

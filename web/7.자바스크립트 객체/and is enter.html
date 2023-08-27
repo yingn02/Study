@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7장실습문제6</title>
+</head>
+
+<body>
+    <h1>문자열 분할</h1>
+    <hr>
+    <script>
+        let user = new String(prompt("문자열 입력"));
+        let user_split = user.split("&");
+
+        for(let i = 0; i < user_split.length; i++) {
+            document.write(user_split[i] + "<br>");
+        }
+        
+    </script>
+</body>
+</html>

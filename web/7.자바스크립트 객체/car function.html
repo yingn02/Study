@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+<script>
+    let car = {
+        speed : 0,
+        oil : 0,
+
+        brake : function(strong) {
+            this.speed -= strong;
+        },
+
+        accel : function(strong) {
+            this.speed += strong;
+        },
+
+        fill : function(oil) {
+            this.oil += oil;
+        },
+
+        drive : function() {
+            if(this.speed > 0 && this.oil > 0) {
+                document.getElementById("volume").innerHTML = "oil : " + this.oil;
+                document.getElementById("carSpeed").innerHTML = "speed" + this.speed;
+                this.speed += 2;//
+                this.oil -= 2;
+            }
+            else {
+                document.getElementById("carSpeed").innerHTML = "stop";
+                this.speed = 0;
+            }
+        },
+
+        function drive() {
+            car.drive();
+        }
+
+        setInterval(drive, 500);
+
+    }
+</script>
+
+<form action="">
+    <div id="volume">oil : 0</div>
+    <input type="button" value="주유" id="oil" onclick="car.fill(50)">
+
+    <input type="button" value="브레이크" id="brake" onclick="car.brake(10)">
+    <input type="button" value="엑셀" id="accel" onclick="car.accel(10)">
+</form>
+
+<div id="carSpeed">stop</div>
+
+</body>
+</html>

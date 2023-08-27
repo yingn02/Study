@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function dClock() {
+            var dt = new Date();
+            var month = dt.getMonth();
+            var date = dt.getDate();
+            var day = dt.getDay();
+            var hours = dt.getHours();
+            var minutes = dt.getMinutes();
+            var seconds = dt.getSeconds();
+            // document.getElementById("show").innerHTML = dt; // 한국표준시
+            document.getElementById("show").innerHTML = hours + ":" + minutes + ":" + seconds;
+
+            document.getElementById("l").innerHTML = "<br><br>";
+
+            if(hours >= 10 && hours <= 14) {
+                document.getElementById("l").innerHTML = "도시락 1+1 행사!";
+            }
+            else if(hours >= 17 && hours <= 20) {
+                document.getElementById("l").innerHTML = "도시락 30% 할인!";
+            }
+            else {
+                document.getElementById("l").innerHTML = "도시락 사세요~";
+            }
+        }
+        setInterval(dClock, 1000);
+    </script>
+
+</head>
+
+<body>
+
+
+        <h1 id="show"></h1>
+        <h1 id="l"></h1>
+</body>
+</html>
