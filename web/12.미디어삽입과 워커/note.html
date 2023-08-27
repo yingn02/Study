@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .ex {
+            border: solid 3px red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>자바스크립트로 오디오 제어</h1>
+    <b>audio 태그</b><br>
+    &lt;audio id="audio" src="media/EmbraceableYou.mp3" loop controls&gt;...&lt;/audio&gt;<br>
+    <br>
+    <b>오디오 DOM 객체 알아내기</b><br>
+    let audio = document.getElementById("audio");<br>
+    <br>
+    <b>오디오 재생 및 일시 중지</b><br>
+    audio.play(); //재생<br>
+    audio.pause(); //일시 중지<br>
+    <br>
+    <b>오디오 처음부터 재생</b><br>
+    audio.load(); //src에 지정된 오디오 데이터 로드<br>
+    audio.play(); //처음부터 재생<br>
+    <br>
+    <b>오디오 음량 제어와 음소거</b><br>
+    audio.volume += 0.1; //볼륨 0.1 증가<br>
+    audio.muted = true; //음소거, 볼륨 변경 없음<br>
+    <br>
+    <div class="ex">
+        <audio id="audio1" src="./media/audio1.mp3" controls></audio>
+        <div id="msg1">이곳에 오디오 제어 메시지 출력</div>
+        <button type="button" id="play" onclick="control(event)">play</button>
+        <button type="button" id="pause" onclick="control(event)">pause</button>
+        <button type="button" id="replay" onclick="control(event)">replay</button>
+        <button type="button" id="vol-" onclick="control(event)">vol-</button>
+        <button type="button" id="vol+" onclick="control(event)">vol+</button>
+        <button type="button" id="mute on/off" onclick="control(event)">mute on/off</button>
+
+        <script>
+            let div1 = document.getElementById("msg1");
+            let audio = document.getElementById("audio1");
+
+            function control(e) {
+                let id =  e.target.id; //눌려진 버튼의 id
+
+                if(id == "play") {
+                    audio.play();
+                    div1.innerHTML = "재생중입니다";
+                }
+                else if(id == "pause") {
+                    audio.pause();
+                    div1.innerHTML = "일시중지되었습니다";
+                }
+                else if(id == "replay") {
+                    audio.load();
+                    audio.play();
+                    div1.innerHTML = audio.src + "를 처음부터 재생합니다";
+                }
+                else if(id == "vol-") {
+                    audio.volume -= 0.1;
+                    if(audio.volume < 0.1) audio.volume = 0;
+                    div1.innerHTML = "음량 0.1 감소." + "현재 " + audio.volume;
+                } 
+                else if(id == "vol+") {
+                    audio.volume += 0.1;
+                    if(audio.volume > 0.9) audio.volume = 1.0;
+                    div1.innerHTML = "음량 0.1 증가." + "현재 " + audio.volume;
+                }
+                else if(id == "mute on/off") {
+                    audio.muted = !audio.muted; // 음소거 토글
+                    if(audio.muted) div.innerHTML = "음소거";
+                    else div1.innerHTML = "음소거 해제";
+                }
+            }
+        </script>
+    </div>
+    <hr>
+    <h1>자바스크립트로 비디오 제어</h1>
+    <b>video 태그</b><br>
+    &lt;video id="video" width="320" height="240" src="media/bear.mp4" controls&gt;&lt;/video&gt;<br>
+    <br>
+    <b>비디오 DOM 객체 알아내기</b><br>
+    let video = document.getElementById("video");<br>
+    <br>
+    <b>loadedmetadata 이벤트</b><br>
+    비디오 파일의 로드 완료시, video 객체에 loadedmetadata 이벤트 발생<br>
+    원본 해상도 : video.videoWidth, video.videoHeight<br>
+    <br>
+    예시)<br>
+    <img src="./media/1.png" alt=""><br>
+    <br>
+    <div class="ex">
+        <video id="video1" width="320" height="240" src="./media/video1.mp4" controls></video>
+        <div id="msg2">.</div>
+
+        <script>
+            let video = document.getElementById("video1");
+            let div2 = document.getElementById("msg2");
+
+            video.onloadedmetadata = function f(e) {
+                div2.innerHTML = "원본 해상도는" + video.videoWidth + "x" + video.videoHeight;
+            }
+        </script>  
+    </div>
+    <hr>
+    <h1>오디오와 비디오의 onended 리스너</h1>
+    오디오/비디오의 재생이 완료되었을 때 호출되는 이벤트 리스너<br>
+    <br>
+    예시)<br>
+    <img src="./media/2.png" alt=""><br>
+    <b>loop 속성이 설정되면 onended 이벤트 리스너 호출되지 않음</b><br>
+    <br>
+    <div class="ex">
+        <h3>오디오 연주가 끝나면 배경색이 바뀝니다 (aliceblue)</h3>
+        <audio id="audio2" src="./media/audio1.mp3" controls></audio>
+
+        <script>
+        let audio2 = document.getElementById("audio2");
+
+        audio2.onended = function (e) {
+            document.body.style.backgroundColor="aliceblue";
+        }
+        </script>
+    </div>
+    <hr>
+    <h1>위치 정보 서비스</h1>
+    컴퓨터/모바일 장치(사용자)의 위치(위도와 경도)를 브라우저(자바스크립트 코드)에게 공급하는 서비스<br>
+    <br>
+    <h3>geolocation 객체</h3>
+    <b>위치 정보 서비스 2가지</b><br>
+    현재 위치 서비스 : 요청 시 현재 위치를 알려주는 서비스<br>
+    반복 위치 서비스 : 위치가 변경될 때마다 반복하여 알려주는 서비스<br>
+    <br>
+    <img src="./media/3.png" alt=""><br>
+    <br>
+    <b>브라우저의 위치 정보 서비스 지원 여부</b><br>
+    <img src="./media/4.png" alt=""><br>
+    <br>
+    <h3>현재 위치 얻기</h3>
+    <b>getCurrentPosition() 메소드 호출</b>
+    getCurrentPosition()은 호출 즉시 현재 위치를 리턴하는 것이 아님<br>
+    위치가 파악되면 호출될 콜백 함수 positionCallback(Position) 등록<br>
+    <br>
+    예시)<br>
+    <img src="./media/5.png" alt=""><br>
+    <hr>
+    <h1>웹 페이지에 지도 넣기</h1>
+    <b>위치 정보 서비스와 지도 서비스는 별개</b>
+    위치 정보 서비스는 웹 브라우저의 구현에 달려 있음<br>
+    지도는 지도 서비스 기업(구글, 네이버, 카카오, 티맵 등)의 고유 자산<br>
+    <br>
+    예시)<br>
+    <b>OpenStreetMap 지도 - 개방형 무료 지도</b><br>
+    <img src="./media/6.png" alt=""><br>
+    <div class="ex">
+        <h3>현재 위치의 지도를 웹 페이지에 내장</h3>
+        <div id="msg">이곳에 위치 정보 출력</div>
+        <iframe id="map" width="425" height="350" 
+        frameborder="0" scrolling="no" marginheight="0" marginwidth="0" ></iframe><br>
+
+        <a id="bigmaplink" target="_blank">새 창에 큰 지도 보기</a>
+
+        <script>
+            if(navigator.geolocation) 
+                navigator.geolocation.getCurrentPosition(success); // 현재 위치 정보 요청
+            else 
+                alert("지원하지 않음");
+
+            // 위치 파악 시 success() 호출. 위치 정보가 들어 있는 position 객체가 매개 변수로 넘어온다.
+            function success(position) {
+                let lat = position.coords.latitude; // 위도
+                let lon = position.coords.longitude; // 경도
+                let acc = position.coords.accuracy; // 정확도
+
+                // 위도와 경도의 소수점 이하 자리가 너무 길어 유효 숫자 6자리로 자름
+                lat = lat.toPrecision(6); lon = lon.toPrecision(6);
+
+                let now = new Date(position.timestamp);
+                let text = "현재 시간 " + now.toUTCString() + "<br>";
+                text += "현재 위치 (위도 " + lat + "°, 경도 " + lon + "°)<br>";
+                text += "정확도 " + acc + "m<br>";
+                document.getElementById("msg").innerHTML = text;
+
+                let map = document.getElementById("map");
+                map.src ="https://www.openstreetmap.org/export/embed.html?bbox=" + 
+                (parseFloat(lon)-0.01) + "%2C" + (parseFloat(lat)-0.01) + "%2C" + 
+                (parseFloat(lon)+0.01) + "%2C" + (parseFloat(lat) + 0.01);
+                
+                // lat와 lon은 문자열이므로 숫자로 바꾸기 위해 parseFloat() 사용
+                let maplink = document.getElementById("bigmaplink");
+                let zoom = 15; // 지도의 줌 레벨. 숫자가 클수록 자세한 지도
+                maplink.href = "https://www.openstreetmap.org/#map=" + zoom + "/" + lat + "/" + lon;
+            }
+        </script>
+    </div>
+    <hr>
+    <h1>반복 위치 서비스</h1>
+    위치 변경 시마다 현재 위치 얻기<br>
+    <br>
+    <b>watchPosition() 호출</b>
+    위치가 변경될 때마다 호출되는 콜백 함수 등록<br>
+    watchPosition()의 리턴 값 : 반복 위치 서비스 id<br>
+    <br>
+    <b>clearWatch() 호출</b>
+    watchPosition()가 리턴한 id로 반복 위치 서비스 중단<br>
+    <br>
+    예시)<br>
+    <img src="./media/7.png" alt=""><br>
+    <img src="./media/8.png" alt=""><br>
+    <hr>
+    <h1>웹 워커</h1>
+    <b> 백그라운드 태스크를 만드는 기능</b><br>
+    자바스크립트 코드를 백그라운드에서 별도로 실행시킬 수 있는 HTML5 표준 기능<br>
+    백그라운드 태스크를 워커 태스크라고 부름<br>
+    <br>
+    <b>실행 시간이 긴 계산 작업에 적합</b><br>
+    <b>백그라운드 태스크로 실행할 자바스크립트 코드는 파일 형태로 저장</b><br>
+    <b>동일 도메인(same origin) 원칙 준수</b><br>
+    <b>로컬 컴퓨터의 웹 페이지에서는 작동하지 않음</b><br>
+    <hr>
+    <h1>워커 객체와 워커 태스크</h1>
+    워커 태스크: 웹 워커 기능을 이용하여 만든 백그라운드 태스크<br>
+    <br>
+    <h3>워커 태스크 만들기</h3><br>
+    <img src="./media/9.png" alt=""><br>
+    <br>
+    <h3>워커 객체의 메소드와 이벤트 리스너</h3>
+    <img src="./media/10.png" alt="" width="600px"><br>
+    <br>
+    <h3>워커 객체의 onmessage 리스너</h3>
+    <b>워커 태스크가 보내는 message 이벤트를 받는 코드</b><br>
+    <br>
+    addWorker.onmessage = function (e) { // e에 MessageEvent 객체가 전달<br>
+        &emsp;&emsp;alert(e.data); // e.data는 "55"<br>
+        }<br>
+    <br>
+    <hr>
+    <h1>메인 태스크와 워커 태스크의 데이터 전송</h1>
+    <h3>워커 태스크에 시작 숫자와 끝 숫자를 보내고 합을 전달받는 코드</h3>
+    <img src="./media/11.png" alt="" width="500px"><br>
+    <br>
+    <div class="ex">
+        <input id="from" type="text" size="10"> ~
+        <input id="to" type="text" size="10"> =
+        <input id="sum" type="text" size="10">
+        <button type="button" id="add" onclick="send()">add</button>
+    </div>
+    
+    <script>
+        let addWorker = new Worker("add.js"); // 워커 태스크 생성
+
+        // 워커 태스크로부터 결과를 기다리는 리스너 등록
+        addWorker.onmessage = function (e) { 
+            document.getElementById("sum").value = e.data; // e.data : 워커 태스크로부터 전달받은 합
+        }
+
+
+        
+
+        function send() { // 워크 태스크에 시작 숫자와 끝 숫자 전송
+            let parameters = { // 시작 숫자와 끝 숫자로 구성된 객체
+                from: document.getElementById("from").value,
+                to: document.getElementById("to").value
+            };
+
+            // 시작 숫자와 끝 숫자를 담은 객체를 워커 태스크로 전송
+            addWorker.postMessage(parameters);
+        }
+    </script>
+    <hr>
+    <h1>워커 태스크 종료</h1>
+    <b>워크 태스크 스스로 종료</b><br>
+    close()<br>
+    <br>
+    <b>워커 객체가 워커 태스크를 강제 종료</b>
+    terminate() 메소드<br>
+    <br>
+    예시)<br>
+    addWorker.terminate();<br>
+    워커 태스크가 종료하면 워커 객체는 더 이상 워커 태스크와 message 이벤트를 주고받을 수 없다.
+
+
+
+
+</body>
+</html>

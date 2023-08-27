@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>결과 : <span id="sum"></span></h3>
+
+    <script>
+        if(window.Worker) {
+            let myWorker = new Worker("pass_data.js");
+
+            let message = {
+                addThis: {num1:5, num2:2} //여러 데이터 넘기는 것 중요한듯
+            };
+
+            myWorker.postMessage(message);
+            
+            myWorker.onmessage = function(e) {
+                document.getElementById("sum").innerHTML = e.data.result;
+            }
+
+        }
+    </script>
+
+
+
+
+    
+</body>
+</html>

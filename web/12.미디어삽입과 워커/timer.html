@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>자바스크립트 동작 시간 : <span id="time">0</span></p>
+    <button onclick="start()">타이머 시작</button>
+    <button onclick="pause()">타이머 일시중지</button>
+    <button onclick="stop()">타이머 중지</button>
+
+    <script>
+        let w;
+        let work = 0;
+        let save_time = 0;//시간 저장 변수
+        function start() {
+            if(typeof(Worker) != "undefined") { 
+                if(typeof(w) == "undefined") { 
+                    w = new Worker("timer.js"); 
+                }
+
+                if(work == 0) { //이미 동작하고있을 땐 반응금지
+                    w.postMessage(save_time);
+                    work = 1;
+                }
+
+                w.onmessage = function(e) {
+                    document.getElementById("time").innerHTML = e.data;
+                    save_time = e.data; //1초 증가할 때마다 기록
+                };
+            } 
+        
+            else {
+                document.getElementById("time").innerHTML = "웹 워커를 지원하지 않는 브라우저";
+            }
+        }
+
+        function pause() {
+            work = 0;
+            document.getElementById("time").innerHTML = save_time;
+            w.postMessage("pause");
+        }
+
+        function stop() {
+            save_time = 0; //0부터 시작하는 타이머
+            w.terminate();
+            w = undefined;
+        }
+    </script>
+    
+</body>
+</html>
