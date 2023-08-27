@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 50px; height: 50px;
+            border: 1px solid blue;
+        }
+    </style>
+
+    <script>
+        let img = new Image();
+        let s = 0;
+        img.src = "media/apple.jpg";
+
+        function set() {
+            for(let i=0; i<25; i++) {
+                document.images[i].onclick = moveImage;
+                document.images[i].style.visibility = "hidden";
+            }
+            moveImage();
+        }
+
+        function moveImage() {
+            document.images[s].src = "";
+            document.images[s].style.visibility = "hidden";
+
+            s = Math.floor(Math.random()*25);
+            document.images[s].src = img.src;
+            document.images[s].style.width = "50px";
+            document.images[s].style.height = "45px";
+            document.images[s].style.visibility = "visible";
+        }
+    </script>
+
+</head>
+
+<body onload="set()">
+    <table>
+        <tr>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+        </tr>
+        <tr>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+        </tr>
+        <tr>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+        </tr>
+        <tr>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+        </tr>
+        <tr>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+            <td><img src=""></td>
+        </tr>
+    </table>
+</body>
+</html>

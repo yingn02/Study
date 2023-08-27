@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1</title>
+
+<style>
+    td {
+        width: 50px; height: 50px;
+        border: 1px solid red;
+    }
+</style>
+
+<script>
+    let tds;
+    let index = 0;
+    let prevIndex = 0;
+ 
+
+    window.onload = function () {
+        tds = document.getElementsByTagName("td"); // 태그 이름이 td인것 찾아서 넣어라
+        tds[index].style.backgroundColor = "red"; // index 번째 칸에 배경을 red로 채워라
+    }
+
+    window.onkeydown = function(e) {
+        switch(e.key) {
+            case "ArrowRight":
+                index++;
+                break;
+            case "ArrowLeft":
+                index--;
+                break;
+            case "ArrowUp":
+                index -= 4;
+                break;
+            case "ArrowDown":
+                index += 4;
+                break;
+        }
+        tds[index].style.backgroundColor = "red"; //새로운 index 번째 칸에 배경을 red로 채워라
+        tds[prevIndex].style.backgroundColor = "white"; //이전 index 번째 칸에 배경을 white로 채워라
+        prevIndex = index;
+    }
+
+
+
+</script>
+
+</head>
+
+<body>
+    <h3>화살표 키로 셀 위로 이동하기</h3>
+    <hr>
+    <table>
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td>
+        </tr>
+    </table>
+</body>
+</html>

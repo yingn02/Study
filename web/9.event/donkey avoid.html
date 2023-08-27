@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9장 실습문제</title>
+
+    <style>
+        table, tr, td {
+            padding: 0;
+            margin: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+        }
+
+        td {
+            width: 50px; height: 50px;
+            border: 1px solid black;
+        }
+    </style>
+
+    <script>
+        let n = 0;
+        let img = new Image();
+        img.src = "media/donkey.jpg";
+
+
+        function f() {
+            for(let i = 0; i < 100; i++) { // 100개의 이미지에, 순서대로 click 리스너를 등록하도록 for문 사용
+                    document.images[i].onclick = randomImg; //randomImg()를 리스너로 등록
+            }
+
+            randomImg();
+        }
+
+		function randomImg() { // 랜덤으로 셀을 선택하여 이미지를 출력하게함
+			document.images[n].src = " "; // 이미지를 공백으로 바꿈
+            
+			n = Math.floor(Math.random()*100); // 0 ~ 99 랜덤 숫자 뽑기 
+			document.images[n].src = img.src; // 랜덤으로 선택된 셀에 이미지 출력
+		}
+    </script>
+
+</head>
+<body onload="f()">
+    <h1>마우스 클릭 연습</h1>
+    <hr>
+    <table>
+        <tr>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+        </tr>
+        <tr>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+        </tr>
+        <tr>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+        </tr>
+        <tr>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+        </tr>
+        <tr>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+        </tr>
+        <tr>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+        </tr>
+        <tr>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+        </tr>
+        <tr>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+        </tr>
+        <tr>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+        </tr>
+        <tr>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+            <td><img src=" " alt=""></td>
+        </tr>
+    </table>
+
+
+
+
+
+
+
+
+</body>
+</html>

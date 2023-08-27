@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            width: 50px; height: 50px;
+            border: 1px solid pink;
+        }
+    </style>
+
+    <script>
+        let tds; //각 칸
+        let img;
+        let s = 0;
+
+        function set() {
+            tds = document.getElementsByTagName("td");
+            img = document.createElement("img");
+            img.getAttribute("src", "media/apple.jpg"); //img 의 src속성을 apple.jpg로 정의
+            img.getAttribute("width", "50px");
+            img.getAttribute("height", "48px");
+            img.onload = moveImage; // onload 될때만 호출
+            moveImage(); // 항상 호출
+        }
+
+        function moveImage() {
+            s = Math.floor(Math.random()*25);
+            tds[s].appendChild(img);
+
+        }
+    </script>
+
+</head>
+
+<body onload="set()">
+    <table>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td>
+        </tr>
+        <tr>
+            <td></td><td></td><td></td><td></td><td></td>
+        </tr>
+    </table>
+</body>
+</html>
