@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11장실습문제</title>
+</head>
+<body>
+    <h1>학점 별로 학생 수를 입력하면 파이 차트로 비율 그리기</h1>
+    <hr>
+    A <input type="number" value="0" id="A">명
+    B <input type="number" value="0" id="B">명
+    C <input type="number" value="0" id="C">명
+    <br>
+    D <input type="number" value="0" id="D">명
+    F <input type="number" value="0" id="F">명
+    <button onclick="drawChart()">차트그리기</button><br>
+    <canvas id="mc" width="600" height="400"
+    style="background-color: aliceblue;">
+    </canvas>
+
+    <script>
+        let colors = ["blue", "green", "yellow", "magenta", "red"];
+        let grades = ["A", "B", "C", "D", "F"];
+
+        let canvas = document.getElementById("mc");
+        let context = canvas.getContext("2d");
+
+        function drawChart() {
+            context.clearRect(0, 0, canvas.width, canvas.height); //비우기
+
+            let value_A = document.getElementById("A").value; //A의 value 속성값 읽기
+            let value_B = document.getElementById("B").value; //B의 value 속성값 읽기
+            let value_C = document.getElementById("C").value; //C의 value 속성값 읽기
+            let value_D = document.getElementById("D").value; //D의 value 속성값 읽기
+            let value_F = document.getElementById("F").value; //F의 value 속성값 읽기
+
+            value_A = parseInt(value_A);
+            value_B = parseInt(value_B);
+            value_C = parseInt(value_C);
+            value_D = parseInt(value_D);
+            value_F = parseInt(value_F);
+
+            let sum = value_A + value_B + value_C + value_D + value_F; //점수 총합
+
+            let per_A = value_A / sum * 100; //A의 비율
+            let per_B = value_B / sum * 100; //B의 비율
+            let per_C = value_C / sum * 100; //C의 비율
+            let per_D = value_D / sum * 100; //D의 비율
+            let per_F = value_F / sum * 100; //F의 비율
+
+            // per_A = parseInt(per_A);
+            // per_B = parseInt(per_B);
+            // per_C = parseInt(per_C);
+            // per_D = parseInt(per_D);
+            // per_F = parseInt(per_F);
+
+            //텍스트
+            context.fillStyle = "blue";
+            context.textAlign = "left";
+            context.font = "15px arial";
+
+            context.fillText("A 학점" + parseInt(per_A) + "% : blue", 10, 25);
+            context.fillText("B 학점" + parseInt(per_B) + "% : green", 10, 40);
+            context.fillText("C 학점" + parseInt(per_C) + "% : yellow", 10, 55);
+            context.fillText("D 학점" + parseInt(per_D) + "% : magenta", 10, 70);
+            context.fillText("F 학점" + parseInt(per_F) + "% : red", 10, 85);
+
+            //원호
+            let pers = [per_A, per_B, per_C, per_D, per_F];
+            let prevAngle = 0;
+            let Angle = 0
+
+            for(let i=0; i<5; i++) {
+                Angle = prevAngle + pers[i]*Math.PI/50;
+                context.beginPath();
+                context.moveTo(300, 200);
+                context.arc(300, 200, 190, prevAngle, Angle);
+                context.closePath();
+                context.fillStyle = colors[i];
+                context.fill();
+                prevAngle = Angle;
+            }
+        }
+        
+    </script>
+</body>
+</html>

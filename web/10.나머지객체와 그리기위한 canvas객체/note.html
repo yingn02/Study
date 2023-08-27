@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10장11장</title>
+
+    <style>
+        p {
+            border: 3px solid red;
+        }
+    </style>
+
+    <script>
+        function load(URL) {
+            window.open(URL, "myWin", "left=300, top=300, width=400, height=300");
+        }
+    </script>
+
+    <script>
+        function startScroll(interval) {
+            setInterval("autoScroll()", interval);
+            printNavigator();
+            init();
+        }
+        function autoScroll() {
+            window.scrollBy(0,10);
+        }
+    </script>
+
+    <script>
+        function printNavigator() {
+            let text = "<span>appCodeName</span>: " + navigator.appCodeName + "<br>";
+            text += "<span>appName</span>: " + navigator.appName + "<br>";
+            text += "<span>appVersion</span>: " + navigator.appVersion + "<br>";
+            text += "<span>platform</span>: " + navigator.platform + "<br>";
+            text += "<span>product</span>: " + navigator.product + "<br>";
+            text += "<span>userAgent</span>: " + navigator.userAgent +"<br>";
+            text += "<span>vendor</span>: " + navigator.vendor +"<br>";
+            text += "<span>language</span>: " + navigator.language + "<br>";
+            text += "<span>onLine</span>: " + navigator.onLine + "<br>";
+            text += "<span>cookieEnabled</span>: " + navigator.cookieEnabled + "<br>";
+            text += "<span>javaEnabled()</span>:" + navigator.javaEnabled() + "<br>";
+            text += "<span>plugins.length</span>: " + navigator.plugins.length + "<br>";
+
+            for(let j=0; j<navigator.plugins.length; j++) {
+                text += "plugins" + j + " : <blockquote>";
+                text += navigator.plugins[j].name + "<br>";
+                text += "<ii>" + navigator.plugins[j].description + "</ii><br>";
+                text += navigator.plugins[j].filename + "</blockquote>";
+            }
+           
+            let div = document.getElementById("div");
+            div.innerHTML = text;
+        }
+    </script>
+
+</head>
+
+<body onload="startScroll(1000)">
+    <h1>BOM 객체</h1>  
+    BOM 객체: 자바스크립트로 브라우저를 제어하기 위해 지원되는 객체들<br>
+    <br>
+    <h3>브라우저 공통 BOM 객체들</h3>
+    <ul>
+        <li>window : 브라우저 윈도우 모양 제어. 새 윈도우 열기/닫기</li>
+        <li>navigator : 브라우저에 대한 다양한 정보 제공</li>
+        <li>history - 브라우저 윈도우에 로드한 URL 리스트의 히스토리 관리</li>
+        <li>location : 브라우저 윈도우에 로드된 HTML 페이지의 URL 관리</li>
+        <li>screen : 브라우저가 실행되고 있는 스크린 장치에 대한 정보 제공</li>
+    </ul>
+    <hr>
+    <h1>window 객체</h1>
+    <h3>윈도우 모양과 window 객체의 프로퍼티</h3>
+    <img src="./media/1.png" alt="" width="700px"><br>
+    <br>
+    <h3>윈도우 열기</h3>
+    3가지 방법이 있다. 그 중에서 간단하게 window.open() 을 사용할 수 있음<br>
+    <br>
+    사용 예시) <b>window.open("http://www.naver.com", "", "");</b><br>
+    <br>
+    <img src="./media/2.png" alt="" width="700px"><br>
+    <br>
+    윈도우 이름 : _blank, _parent, _self, _top<br>
+    <br>
+    <p>window.open() 으로 윈도우 열기</p>
+    <a href="javascript:load('http://www.greceland.com')">
+        엘비스 프레슬리 홈 페이지
+    </a><br>
+    <a href="javascript:load('http://www.universalorlando.com')">
+        유니버셜 올랜드 홈 페이지
+    </a><br>
+    <a href="javascript:load('http://www.disneyworld.com')">
+        디즈니랜드 홈 페이지
+    </a><br>
+    <br>
+    <h3>window 객체의 타이머 활용</h3>
+    타임아웃 코드 1회 호출 : setTimeout()/clearTimeout() 메소드<br>
+    <img src="./media/3.png" alt="" width="700px"><br>
+    <br>
+    타임아웃 코드 반복 호출 : setInterval()/clearInterval() 메소드<br>
+    <img src="./media/4.png" alt="" width="700px"><br>
+    <br>
+    <h3>윈도우의 위치와 크기 조절</h3>
+    보안상의 이유로 정상적인 실행이 되지 않을 수 있음<br>
+    <img src="./media/5.png" alt="" width="500px">
+    <p>
+        <button onclick="window.moveBy(-10,0)">left</button>
+        <button onclick="window.moveBy(10, 0)">right</button>
+        <button onclick="self.moveBy(0, -10)">up</button>
+        <button onclick="moveBy(0, 10)">down</button>
+        <button onclick="resizeBy(10, 10)">+</button>
+        <button onclick="resizeBy(-10, -10)">-</button>
+    </p>
+    <h3>웹 페이지 스크롤</h3>
+    현재 이 페이지에는 이미 웹 페이지 스크롤이 적용됨<br>
+    <img src="./media/6.png" alt=""><br>
+    <br>
+    <h3>웹 페이지 프린트</h3>
+    window.print(); 코드가 실행되면,<br>
+    인쇄 다이얼로그가 열리게 된다.<br>
+    <hr>
+    <h1>onbeforeprint 와 onafterprint</h1>
+    onbeforeprint 라는 리스너와, onafterprint 라는 리스너를 제공함<br>
+    <br>
+    onbeforeprint : print를 실행시키자마자 (프린트 이전)<br>
+    onafterprint : print가 모두 끝날 때<br>
+    <hr>
+    <h1>location 객체</h1>
+    사용 예시 ) <b>window,location = "http://www.naver.com";</b><br>
+    <br>
+    새 윈도우에 웹 페이지 열기)<br>
+    <b>let win = window.open();</b><br>
+    <b>win.location="http://www.naver.com";</b><br>
+    <hr>
+    <h1>navigator 객체</h1>
+    <p>현재 작동중인 브라우저에 대한 다양한 정보를 나타내는 객체</p><br>
+    <img src="./media/7.png" alt="" width="600px"><br>
+    <div id="div"></div><br>
+    <hr>
+    <h1>screen 객체</h1>
+    브라우저가 실행되는 스크린 장치에 관한 정보를 담고있는 객체<br>
+    <br>
+    <table border="black">
+        <tr style="background-color: rgb(179, 179, 179);">
+            <th>프로퍼티</th><th>설명</th>
+        </tr>
+        <tr>
+            <td>availHeight</td><td>작업 표시줄 등을 제외하고 브라우저가 출력 가능한 영역의 높이</td>
+        </tr>
+        <tr>
+            <td>availWidth</td><td>작업 표시줄 등을 제외하고 브라우저가 출력 가능한 영역의 폭</td>
+        </tr>
+        <tr>
+            <td>pixelDepth</td><td>한 픽셀의 색을 나타내기 위해 사용되는 비트 수</td>
+        </tr>
+        <tr>
+            <td>colorDepth</td><td>pixelDepth와 동일, 대부분의 브라우저에서 지원되므로 더 좋음</td>
+        </tr>
+        <tr>
+            <td>height</td><td>스크린의 수직 픽셀 수</td>
+        </tr>
+        <tr>
+            <td>width</td><td>스크린의 수평 픽셀 수</td>
+        </tr>
+    </table>
+    <br>
+    <hr>
+    <h1>history 객체</h1>
+    <p>윈도우에서 방문한 웹 페이지 리스트(히스토리)를 나타내는 객체</p>
+    <br>
+    사용 예시)<br>
+    <img src="./media/8.png" alt="" width="300px"><br>
+    <br>
+    <button onclick="history.back()">back()</button>
+    <button onclick="history.forward()">forward()</button>
+    <button onclick="history.go(-1)">go(-1)</button>
+    <br>
+    <hr>
+    <h1>canvas 태그</h1>
+    웹 페이지에 캔버스 영역 만들기<br>
+    <img src="./media/9.png" alt="" width="600px"><br>
+    <br><br><br>
+    <p>캔버스 만들기</p>
+    <img src="./media/10.png" alt="" width="400px"><br>
+    <canvas id="canvas1" width="150" height="100" 
+    style="background-color: lightblue;">
+    </canvas>
+    <canvas id="canvas2" width="150" height="100" 
+    style="background-color: violet;">
+    </canvas>
+    <br>
+    <canvas id="canvas3" width="300" height="150" 
+    style="background-color: yellow;">
+    </canvas>
+    <br>
+    <p>canvas 객체 다루기</p>
+    <img src="./media/11.png" alt="" width="500px"><br>
+    <br>
+    <canvas id="myCanvas" width="250" height="150"
+    style="background-color: aliceblue;">
+    </canvas>
+    <script>
+        let canvas = document.getElementById("myCanvas");
+        let context = canvas.getContext("2d");
+
+        // 파란선으로 사각형 그리기
+        context.beginPath(); // 빈 경로 만들기
+        context.strokeStyle = "blue"; // 선색 설정
+        context.rect(30, 30, 50, 50); // (30,30)에서 50x50 크기 사각형을 경로에 삽입
+        context.stroke(); // 경로에 있는 모든 도형의 외곽선 그리기
+
+        // violet 색으로 채운 사각형 그리기
+        context.beginPath(); // 빈 경로 만들기
+        context.fillStyle = "violet"; // 채우기색
+        context.rect(60, 60, 50, 50); // (60,60)에서 50x50 크기 사각형을 경로에 삽입
+        context.fill(); // 경로에 있는 모든 도형의 내부만 채워 그리기
+
+        // green 색으로 텍스트 내부만 그리기
+        context.font = "20px Gothic";
+        context.fillStyle = "green"; // 채우기 색
+        context.fillText("Text in Canvas", 100, 50); // 텍스트를 경로에 넣지 않고 바로 그리기
+    </script>
+    <br>
+    <p>삼각형 그리기</p>
+    <b>beginPath() : 새로운 경로시작</b><br>
+    <b>closePath() : 경로의 마지막 점과 시작점을 연결하는 직선 추가</b><br>
+    <br>
+    <img src="./media/12.png" alt="" width="400px"><br>
+    <br>
+    <canvas id="myCanvas2" width="200" height="150"
+    style="background-color: aliceblue;">
+    </canvas>
+    <script>
+        let canvas2 = document.getElementById("myCanvas2");
+        let context2 = canvas2.getContext("2d");
+
+        context2.beginPath(); // 빈 경로 만들기
+        context2.moveTo(120, 20); // (120, 20)을 시작점으로 설정
+        context2.lineTo(20, 50); // 경로에 (120, 20)에서 (20, 50)까지 직선 추가
+        context2.lineTo(150, 120); // 경로에 (20, 50)에서 (150, 120)까지 직선 추가
+        context2.lineTo(120, 20); // 경로에 (150, 120)에서 (120, 20)까지 직선 추가
+        context2.strokeStyle="magenta"; // 선의 색
+        context2.stroke(); // 경로를 캔버스에 그린다
+    </script>
+    <br>
+    <br>
+    <br>
+    <b>closePath() 를 이용하여 같은 동작을 해보았다.</b><br>
+    <canvas id="myCanvas3" width="200" height="150"
+    style="background-color: aliceblue;">
+    </canvas>
+    <script>
+        let canvas3 = document.getElementById("myCanvas3");
+        let context3 = canvas3.getContext("2d");
+
+        context3.beginPath(); // 빈 경로 만들기
+        context3.moveTo(120, 20); // (120, 20)을 시작점으로 설정
+        context3.lineTo(20, 50); // 경로에 (120, 20)에서 (20, 50)까지 직선 추가
+        context3.lineTo(150, 120); // 경로에 (20, 50)에서 (150, 120)까지 직선 추가
+        context3.closePath(); // 경로에 (150, 120)에서 (120, 20)까지 직선 추가
+        context3.strokeStyle="magenta"; // 선의 색
+        context3.stroke(); // 경로를 캔버스에 그린다
+    </script>
+    <br>
+    <hr>
+    <h1>원호 그리기</h1>
+    원호를 그리는 arc() 메소드를 이용한다.<br>
+    <br>
+    각도는 3시방향부터 시작한다.<br>
+    각도는 원주율로 표현한다.<br>
+    <br>
+    예시)<br>
+    <img src="./media/13.png" alt="" width="500px"><br>
+    <br>
+    <p>원호 그리기 실습</p>
+    <img src="./media/14.png" alt="" width="500px"><br>
+    <canvas id="myCanvas4" width="200" height="150"
+    style="background-color: aliceblue;">
+    </canvas>
+    <script>
+        let canvas4 = document.getElementById("myCanvas4");
+        let context4 = canvas4.getContext("2d");
+
+        context4.beginPath(); // 빈 경로 구성
+        context4.strokeStyle="magenta";
+        context4.arc(100, 70, 30, 0, 1.5*Math.PI, false); // 시계 방향
+        context4.stroke(); // 경로에 있는 원호를 그린다
+        context4.beginPath(); // 여기서 반드시 빈 경로로 시작해야 함
+        context4.strokeStyle="blue";
+        context4.arc(100, 70, 50, Math.PI/2, Math.PI, true); // 반시계 방향
+        context4.stroke(); // 경로에 있는 한 개의 원호를 캔버스에 그린다
+    </script>
+    <br>
+    <hr>
+    <h1>캔버스 지우기</h1>
+    <b>캔버스에 그려진 것을 모두 지울 때 (경로는 지워지지 않음)</b><br>
+    context.clearRect(0, 0, canvas.width, canvas.height);<br>
+    <br>
+    <b>경로를 포함하여 지울 때</b><br>
+    context.clearRect(0, 0, canvas.width, canvas.height);<br>
+    context.beginPath();<br>
+    <hr>
+    <h1>도형 꾸미기</h1>
+    <b>선 색깔</b><br>
+    context.strokeStyle = "blue";<br>
+    <br>
+    <b>색 채우기</b><br>
+    context.fillStyle = "red";<br>
+    <br>
+    <b>선 굵기</b><br>
+    context.lineWidth = 20;<br>
+    <br>
+    <br>
+    <br>
+    <b>경로에 갇힌 도형 칠하기</b><br>
+    context.fill();<br>
+    <br>
+    <b>지정된 색으로 캔버스에 바로 색을 채우기</b><br>
+    context.fillRect(20, 20, 100, 100);<br>
+    <hr>
+    <h1>텍스트 그리기</h1>
+    <b>폰트 설정</b><br>
+    context.font = "50px arial";<br>
+    <br>
+    <b>정렬 설정</b><br>
+    context.textAlign ="center";<br>
+    <br>
+    <b> 텍스트 외곽선 그리기 </b><br>
+    context.strokeText("Javascript", 30, 100); <br>
+    <br>
+    <b>텍스트 채워 그리기</b><br>
+    context.fillText("Javascript", 30, 200);<br>
+    <br>
+    <hr>
+    <h1>이미지 그리기</h1>
+    <p>캔버스의 (20, 20에 100x200 크기로 변형하기 그리기)</p>
+    <img src="./media/15.png" alt="" width="400px"><br>
+    <br>
+    <canvas id="myCanvas5" width="300" height="250"
+    style="background-color: aliceblue;">
+    </canvas>
+    <script>
+        let canvas5 = document.getElementById("myCanvas5");
+        let context5 = canvas5.getContext("2d");
+
+        let img = new Image();
+
+        img.onload = function () {
+            context5.drawImage(img, 20, 20, 100, 200);
+        }
+
+        img.src = "media/sky.jpg";
+
+    </script>
+    <br>
+    <hr>
+    <h1>canvas 객체와 마우스 이벤트 활용</h1>
+    <p>마우스 드래깅으로 캔버스에 그림 그리기</p>
+    <img src="./media/16.png" alt="" width="800px"><br>
+    <br>
+    <a href="init.html" >열기</a>
+</body>
+</html>

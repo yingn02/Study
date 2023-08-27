@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <canvas id="cv" width="300" height="300"
+    style="background-color: skyblue">
+    </canvas>
+    <script>
+        let canvas = document.getElementById("cv");
+        let context = canvas.getContext("2d");
+
+        context.rect(100, 100 , 50, 50);
+        context.strokeStyle = "green";
+        context.stroke();
+
+        context.beginPath();
+        context.moveTo(150, 120);
+        context.lineTo(180, 150);
+        context.lineTo(200, 120);
+        context.closePath();
+        context.strokeStyle = "red";
+        context.stroke();
+
+    </script>
+    
+
+
+
+
+
+
+
+
+</body>
+</html>
