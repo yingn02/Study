@@ -1,0 +1,52 @@
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class Test {
+	   JFrame mf;
+	   JTextField text;
+	   
+	   public Test() {
+		    mf = new JFrame();
+			mf.setTitle("예제");    
+			mf.setSize(200, 60);
+			mf.setLocation(500, 300);
+			mf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+			
+			gui();
+			
+			mf.setVisible(true);
+	   }
+	   
+	   public void gui(){
+		    text = new JTextField();
+			
+		    JButton btn = new JButton("확인");
+		    
+			mf.add(text, BorderLayout.CENTER);
+			mf.add(btn, BorderLayout.EAST);
+
+			btn.addActionListener(new MyActionListener(text)); 
+	   }
+	   
+	   public static void main(String[] args) {
+		   Test test = new Test();
+		   test.gui();
+	   }
+}
+
+class MyActionListener implements ActionListener {
+	
+	JTextField t;
+	
+	MyActionListener(JTextField t){
+		this.t=t;
+	}
+	
+	public void actionPerformed(ActionEvent e) {
+			t.setText("누름");
+	}
+}
+
+
