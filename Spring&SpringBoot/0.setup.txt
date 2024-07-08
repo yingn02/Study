@@ -1,0 +1,120 @@
+﻿ **** Spring Framework(v5.3.30)을 활용한 웹 애플리케이션 개발  *****
+
+* 환경 설정(Development Environment Setup Walkthrough)
+    Browser <-> WAS(Tomcat) <-> Database(MySQL)
+
+* 시스템 구성
+개발시: PC(Browser, WAS, MySQL)
+운용시: Clients(Browser) <-> Server1(WAS, MySQL)
+                                       Server1(WAS) <-> Server2(MySQL)
+               
+0. 개발 환경
+
+* 개발(Development) PC         		* 운용(Operation) Server
+ Windows   				AWS EC2(Linux)
+                                                		
+
+- JDK		          			- JDK
+- Intellij(IDE)
+- Tomcat(WAS, 8080) +                           	- Tomcat+ MySQL에서 응용 앱을 실행
+   MySQL(DB, 3306)에서 응용 앱을 테스트    
+  
+- Web Application(war file)을  운용 서버에           - war file
+    배포(deploy)
+		
+- Git 기반 원격 레포지토리 서비스인 
+  GitHub를 통해 소스 공유 및 버전 관리
+
+1. 개발 폴더
+
+dev 폴더를 만들고 여기에 각종 툴을 다운로드한다.
+-> 이 폴더 배포시 개발자간에 동일한 개발 환경 공유 가능
+
+2. 개발 도구 (안정성, 성능, 보안 측면을 고려하여 버전 선택)
+
+1) JDK: JDK SE 17(LTS) 
+2) IDE: Intellij Ultimate Edition
+3) Tomcat 9
+4) MySQL 8.0.36
+
+dev/workspace 폴더를 생성하여, 응용 프로그램 개발
+
+2.1 JDK 설치
+//oracle jdk,  openjdk
+1)  구글에서 "jdk download"을 검색한 후, 
+Java SE Development Kit 17(Windows x64 Installer) 다운로드후 설치
+
+2)  JAVA_HOME(=C:\Program Files\Java\jdk-17)
+  PATH(= %JAVA_HOME%\bin ) 환경 변수 설정
+
+  환경변수 체크: 명령 prompt에서 set 입력
+
+3)  "java -version" 명령어 수행하여 정상적인 설치 유무 확인
+
+2.2 Tomcat(Web Application Server) 
+
+1) tomcat.apache.org에서 installer 다운로드 및 설치(관리자 계정 admin/adminpw)
+
+참고) CATALINA_HOME/conf/tomcat-users.xml 파일에서
+<user username="admin" password="adminpw" roles="manager-gui"/> 확인
+
+2) CATALINA_HOME 환경변수 설정(= C:\Program Files\Apache Software Foundation\Tomcat 9.0)
+3) '서비스'에서 tomcat9 start 
+4) http://localhost:8080으로 tomcat이 정상적으로 동작하는지 확인
+
+2.3 MySQL Community Server
+
+1) MySQL installer 8.0.36 다운로드후 설치
+   중요: root 패스워드 설정(csedbadmin)
+참고) 설치시 오류가 뜨는 경우 컴퓨터 이름을 한글이 아니라 영문으로...
+
+2) 서비스 관리자에서 mysql80 서버 수행중인지 확인
+3) PATH 환경 변수에 C:\Program Files\MySQL\MySQL Server 8.0\bin 추가
+4) MySQL command line client를 이용하여 테스트
+
+$ mysql -u root -p
+
+mysql> create database productdb;
+mysql> show databases;
+mysql> use productdb;
+mysql> create table products(
+		pid int not null auto_increment primary key,
+		name varchar(50),
+		price int );
+mysql> show tables;
+mysql> insert into products values (1, 'apple', 5);
+mysql> insert into products values (2, 'banana', 3);
+mysql> insert into products values (3, 'pear', 4);
+mysql> select * from products;
+mysql> select * from products where name='apple';
+
+2.4 Intellij
+1) Community : free, Ultimate: commercial license
+
+2) Plugin: theme(one dark theme)
+
+3) Settings:
+Editor-> General -> Auto Import, Add unambiguous import
+Editor->Font
+encoding: UTF-8
+
+4) Get From VCS
+https://github.com/stelladream/helloSpring-intellij.git
+
+5) Tomcat settings
+vm options:  -Dfile.encoding=UTF-8
+tomcat/conf/server.xml: shutdown port = 8005
+Invalidate Caches and Restart
+
+
+
+
+
+
+
+
+
+
+
+
+
